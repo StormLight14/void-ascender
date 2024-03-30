@@ -32,4 +32,7 @@ texture = ExtResource("2_1puo4")
 visible = false
 shape = SubResource("RectangleShape2D_5fuyn")
 
+[node name="LifetimeTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timeout"]
