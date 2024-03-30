@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8xrrjcryhhv"]
+[gd_scene load_steps=9 format=3 uid="uid://c8xrrjcryhhv"]
 
 [ext_resource type="PackedScene" uid="uid://bkhq4rsyosghj" path="res://player/player.tscn" id="1_5n6er"]
+[ext_resource type="Script" path="res://level/level.gd" id="1_oeuyb"]
 [ext_resource type="Texture2D" uid="uid://cahb5t01kmjrv" path="res://assets/tilesets/purple.png" id="2_fbx1f"]
 [ext_resource type="Texture2D" uid="uid://bltqveifrf3v8" path="res://assets/backgrounds/test.png" id="3_b0g8v"]
+[ext_resource type="PackedScene" uid="uid://dhfqf1k5qdvhv" path="res://hazards/void/void.tscn" id="4_581ep"]
+[ext_resource type="PackedScene" uid="uid://bvtb88luepxkq" path="res://hazards/fireball/fireball_spawner.tscn" id="6_fpg5p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gvql2"]
 texture = ExtResource("2_fbx1f")
@@ -518,17 +521,21 @@ terrain_set_0/terrain_0/color = Color(0.835294, 0.25098, 0.603922, 1)
 sources/0 = SubResource("TileSetAtlasSource_gvql2")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_oeuyb")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="StaticBackground" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(240, 135)
+texture = ExtResource("3_b0g8v")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1000, 600)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("3_b0g8v")
-
 [node name="Player" parent="." instance=ExtResource("1_5n6er")]
+unique_name_in_owner = true
+position = Vector2(0, 3.685)
 floor_max_angle = 0.785398
 floor_snap_length = 1.5
 
@@ -536,3 +543,12 @@ floor_snap_length = 1.5
 tile_set = SubResource("TileSet_8e0sw")
 format = 2
 layer_0/tile_data = PackedInt32Array(131070, 393216, 6, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 196607, 327680, 0, 131072, 65536, 1, 262143, 0, 2, 196608, 655360, 9, 131073, 262144, 0, 65538, 524288, 6, 196606, 0, 2, 131069, 131072, 4, 131074, 131072, 2, 196609, 131072, 2, 262144, 0, 6, 65539, 262144, 4, 65543, 131072, 4, 65544, 393216, 6, 65545, 327680, 1, 9, 0, 0, 10, 65536, 0, 65546, 262144, 0, 131081, 65536, 2, 131080, 0, 2, 11, 131072, 0, 65547, 131072, 2, 131082, 131072, 2, 65552, 131072, 4, 65553, 262144, 4, 131090, 458752, 0, 196627, 458752, 0, 131092, 458752, 0, 65557, 131072, 4, 65558, 262144, 4, 131095, 458752, 0, 196632, 0, 4, 262168, 0, 5, 131087, 458752, 0, 196622, 0, 4, 262158, 0, 5, 327694, 0, 6, 327704, 0, 6, 393231, 458752, 0, 458768, 458752, 0, 524305, 458752, 0, 589842, 458752, 0, 393239, 458752, 0, 458774, 458752, 0, 524309, 458752, 0, 589844, 458752, 0, 655379, 458752, 0)
+
+[node name="Void" parent="." instance=ExtResource("4_581ep")]
+unique_name_in_owner = true
+position = Vector2(-5043, 181)
+
+[node name="FireballSpawner" parent="." instance=ExtResource("6_fpg5p")]
+unique_name_in_owner = true
+position = Vector2(-41, 4)
+active = true

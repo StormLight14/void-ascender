@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvtb88luepxkq"]
+
+[ext_resource type="Script" path="res://hazards/fireball/fireball_spawner.gd" id="1_xy2jm"]
+[ext_resource type="Texture2D" uid="uid://btx3ys4323tio" path="res://assets/hazards/fireball_spawner.png" id="2_fe2ar"]
+
+[node name="FireballSpawner" type="Node2D"]
+script = ExtResource("1_xy2jm")
+direction = Vector2(1, 0)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fe2ar")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

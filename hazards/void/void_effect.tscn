@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbfhs3bcav2fl"]
+
+[ext_resource type="Texture2D" uid="uid://d3mtorkqun53w" path="res://assets/particles/void_effect.png" id="1_ced7j"]
+[ext_resource type="Script" path="res://hazards/void/void_effect.gd" id="2_f2rir"]
+
+[node name="VoidEffect" type="Sprite2D" groups=["VoidEffect"]]
+texture = ExtResource("1_ced7j")
+script = ExtResource("2_f2rir")
