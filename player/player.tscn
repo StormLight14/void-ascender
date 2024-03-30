@@ -21,6 +21,10 @@ script = ExtResource("1_nhuf3")
 unique_name_in_owner = true
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

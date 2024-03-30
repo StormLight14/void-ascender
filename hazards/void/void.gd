@@ -10,7 +10,7 @@ var hazard_type = "void"
 var rng = RandomNumberGenerator.new()
 var effect_velocities = [-1, 1]
 
-var speed = 30
+var speed = 15
 
 var positions = []
 var count = 0
