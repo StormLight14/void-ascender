@@ -5,17 +5,15 @@ extends Area2D
 @export var h_effect_distance = 35
 @export var v_effect_distance = 35
 
-var hazard_type = "void"
-
 var rng = RandomNumberGenerator.new()
 var effect_velocities = [-1, 1]
 
-var speed = 15
-
-var positions = []
+var speed = 25
+var reset_position = Vector2.ZERO
 var count = 0
 
 func _ready():
+	reset_position = global_position
 	for row in range(width / h_effect_distance):
 		for col in range(height / v_effect_distance):
 			var void_effect = preload("res://hazards/void/void_effect.tscn").instantiate()
@@ -40,17 +38,6 @@ func _process(delta):
 		elif effect.global_position.x > global_position.x + width:
 			effect.velocity.x *= -1
 			effect.global_position.x = global_position.x + width
-			
-	save_position()
-
-func save_position():
-	if count % 60 == 0:
-		positions.append(global_position)
-		if len(positions) > 5:
-			positions.pop_back()
-
-	count += 1
 
 func on_player_killed():
-	if len(positions) >= 1:
-		global_position = positions[0]
+	global_position = reset_position

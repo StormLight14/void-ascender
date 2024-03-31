@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lojxl"]
 size = Vector2(16, 16)
 
-[node name="FireballSpawner" type="StaticBody2D"]
+[node name="FireballSpawner" type="StaticBody2D" groups=["FireballSpawner"]]
 script = ExtResource("1_xy2jm")
-direction = Vector2(1, 0)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 

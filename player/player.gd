@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 200.0
-const ACCELERATION = 800.0
+const MAX_SPEED = 150.0
+const ACCELERATION = 850.0
 const JUMP_VELOCITY = -275.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -46,7 +46,7 @@ func update_hearts():
 		hearts.add_child(heart.instantiate())
 
 func _on_hurtbox_area_entered(area):
-	if area.hazard_type != "void" and player_hearts > 1:
+	if area.get_node("Hazard").hazard_type != "void" and player_hearts > 1:
 		player_hearts -= 1
 		update_hearts()
 		return

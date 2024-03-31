@@ -5,7 +5,6 @@ extends Area2D
 var direction = Vector2(0, 0)
 var speed = 100.0
 var lifetime = 5 # seconds
-var hazard_type = "fireball"
 
 func _ready():
 	lifetime_timer.wait_time = lifetime
