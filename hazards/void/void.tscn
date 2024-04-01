@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://ofv0s5tiw7j3" path="res://assets/hazards/void.png" id="2_xj3mj"]
 [ext_resource type="PackedScene" uid="uid://dp45evj1ucagl" path="res://hazards/hazard.tscn" id="3_ipxw7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_io6nl"]
-size = Vector2(10004, 598)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_c3043"]
+a = Vector2(4995.83, 40.8538)
+b = Vector2(-5003.85, -38.9177)
 
 [node name="Void" type="Area2D"]
 collision_layer = 2
@@ -13,12 +14,12 @@ collision_mask = 16
 script = ExtResource("1_oh147")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 300)
 texture = ExtResource("2_xj3mj")
-centered = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5003, 300)
-shape = SubResource("RectangleShape2D_io6nl")
 
 [node name="Hazard" parent="." instance=ExtResource("3_ipxw7")]
 hazard_type = "void"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.00797723
+shape = SubResource("SegmentShape2D_c3043")

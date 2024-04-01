@@ -2,8 +2,9 @@ extends Area2D
 
 @export var width = 10000
 @export var height = 600
-@export var h_effect_distance = 35
-@export var v_effect_distance = 35
+@export var spawn_distance_from_player = 300
+@export var h_effect_distance = 50
+@export var v_effect_distance = 50
 
 var rng = RandomNumberGenerator.new()
 var effect_velocities = [-1, 1]
@@ -13,7 +14,6 @@ var reset_position = Vector2.ZERO
 var count = 0
 
 func _ready():
-	reset_position = global_position
 	for row in range(width / h_effect_distance):
 		for col in range(height / v_effect_distance):
 			var void_effect = preload("res://hazards/void/void_effect.tscn").instantiate()
@@ -38,6 +38,10 @@ func _process(delta):
 		elif effect.global_position.x > global_position.x + width:
 			effect.velocity.x *= -1
 			effect.global_position.x = global_position.x + width
+			
+func set_reset_position(checkpoint_pos):
+	reset_position.y = checkpoint_pos.y
+	reset_position.y += spawn_distance_from_player
 
 func on_player_killed():
 	global_position = reset_position

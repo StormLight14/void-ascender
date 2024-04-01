@@ -31,14 +31,16 @@ grow_horizontal = 2
 texture = ExtResource("2_gh0m4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_7jg2n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 8.0
+position_smoothing_speed = 9.0
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 collision_mask = 2
 
@@ -46,5 +48,12 @@ collision_mask = 2
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_etlai")
 debug_color = Color(0.937255, 0.0705882, 0.592157, 0.419608)
+
+[node name="ClimbCheckerLeft" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(-10, 0)
+
+[node name="ClimbCheckerRight" type="RayCast2D" parent="."]
+target_position = Vector2(10, 0)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
