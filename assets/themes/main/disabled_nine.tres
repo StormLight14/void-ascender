@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c2mosk06k33ve"]
+
+[ext_resource type="Texture2D" uid="uid://qf00hiktya4k" path="res://assets/themes/main/transparent_ninepatch.png" id="1_hmlh2"]
+
+[resource]
+texture = ExtResource("1_hmlh2")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
