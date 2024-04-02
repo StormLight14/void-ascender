@@ -56,16 +56,24 @@ func state_climbing(delta):
 func handle_climbing(delta):
 	var left_has_wall = climb_checker_left.is_colliding()
 	var right_has_wall = climb_checker_right.is_colliding()
+	var on_wall = left_has_wall or right_has_wall
 	
-	if Input.is_action_pressed("climb") and (left_has_wall or right_has_wall) and not is_on_floor():
-		if state == CLIMBING:
+	if Input.is_action_pressed("climb") and on_wall and not is_on_floor():
+		if state != CLIMBING:
 			state = CLIMBING
-		else:
-			state = CLIMBING
-			velocity.y = 0
 			
-		if (left_has_wall and Input.is_action_pressed("left")) or (right_has_wall and Input.is_action_pressed("right")):
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = JUMP_VELOCITY / 1.5
+			if left_has_wall:
+				velocity.x = -JUMP_VELOCITY / 1.5
+			elif right_has_wall:
+				velocity.x = JUMP_VELOCITY / 1.5
+		elif left_has_wall and Input.is_action_pressed("left") or right_has_wall and Input.is_action_pressed("right"):
 			velocity.y = -CLIMB_SPEED
+		elif left_has_wall and Input.is_action_pressed("right") or right_has_wall and Input.is_action_pressed("left"):
+			velocity.y = CLIMB_SPEED
+		else:
+			velocity.y = move_toward(velocity.y, 0, ACCELERATION * delta)
 	else:
 		state = IDLE
 	

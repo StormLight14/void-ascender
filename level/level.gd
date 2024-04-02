@@ -26,11 +26,7 @@ func get_void_distance():
 	
 func player_killed():
 	the_void.on_player_killed()
-	void_follow_player()
 	player.global_position = player_spawn
-	
-func void_follow_player():
-	the_void.global_position.x = player.global_position.x - the_void.width / 2.0
 
 func spawn_fireball(direction, speed, spawn_position):
 	var fireball = preload("res://hazards/fireball/fireball.tscn").instantiate()

@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_nhuf3"]
 [ext_resource type="Texture2D" uid="uid://v6fkq0hn5rut" path="res://assets/player/clark.png" id="2_gh0m4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jg2n"]
-size = Vector2(14, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gixw"]
+radius = 5.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etlai"]
 size = Vector2(10, 18)
@@ -34,8 +35,7 @@ grow_horizontal = 2
 texture = ExtResource("2_gh0m4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_7jg2n")
+shape = SubResource("CapsuleShape2D_3gixw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
