@@ -59,10 +59,8 @@ func state_climbing(delta):
 	handle_climbing(delta)
 	
 func handle_stamina(delta):
-	print(can_regenerate_stamina)
 	if player_stamina < 0:
 		player_stamina = 0
-		can_regenerate_stamina = false
 	
 	if can_regenerate_stamina:
 		if player_stamina < MAX_STAMINA:
