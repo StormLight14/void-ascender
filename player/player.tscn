@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkhq4rsyosghj"]
+[gd_scene load_steps=8 format=3 uid="uid://bkhq4rsyosghj"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_nhuf3"]
 [ext_resource type="Texture2D" uid="uid://v6fkq0hn5rut" path="res://assets/player/clark.png" id="2_gh0m4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83g1y"]
+bg_color = Color(0.427451, 0.427451, 0.427451, 0.72549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_witdj"]
+bg_color = Color(0, 0.721569, 0.262745, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gixw"]
 radius = 5.0
@@ -30,6 +36,19 @@ offset_top = 2.0
 offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
+unique_name_in_owner = true
+offset_left = 340.0
+offset_top = 1.0
+offset_right = 478.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_83g1y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_witdj")
+max_value = 1500.0
+step = 1.0
+value = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gh0m4")
@@ -66,4 +85,10 @@ shape = SubResource("RectangleShape2D_lpfh6")
 target_position = Vector2(8, 0)
 max_results = 4
 
+[node name="StaminaTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
