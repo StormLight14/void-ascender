@@ -1,13 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8xrrjcryhhv"]
+[gd_scene load_steps=9 format=3 uid="uid://c8xrrjcryhhv"]
 
 [ext_resource type="PackedScene" uid="uid://bkhq4rsyosghj" path="res://player/player.tscn" id="1_5n6er"]
 [ext_resource type="Script" path="res://level/level.gd" id="1_oeuyb"]
 [ext_resource type="Texture2D" uid="uid://cahb5t01kmjrv" path="res://assets/tilesets/purple.png" id="2_fbx1f"]
 [ext_resource type="Texture2D" uid="uid://bltqveifrf3v8" path="res://assets/backgrounds/test.png" id="3_b0g8v"]
 [ext_resource type="PackedScene" uid="uid://dhfqf1k5qdvhv" path="res://hazards/void/void.tscn" id="4_581ep"]
-[ext_resource type="PackedScene" uid="uid://bvtb88luepxkq" path="res://hazards/fireball/fireball_spawner.tscn" id="6_fpg5p"]
 [ext_resource type="PackedScene" uid="uid://b2odctsxydwgo" path="res://ui/game_ui.tscn" id="7_00mnn"]
-[ext_resource type="PackedScene" uid="uid://q1446pk3jgsj" path="res://level/checkpoint.tscn" id="8_v02cl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gvql2"]
 texture = ExtResource("2_fbx1f")
@@ -537,18 +535,7 @@ motion_mirroring = Vector2(1000, 600)
 
 [node name="Hazards" type="Node2D" parent="."]
 
-[node name="FireballSpawner" parent="Hazards" instance=ExtResource("6_fpg5p")]
-position = Vector2(-42, -48)
-direction = Vector2(1, 1)
-spawn_delay = 1
-
 [node name="Checkpoints" type="Node2D" parent="."]
-
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("8_v02cl")]
-position = Vector2(49, 4)
-
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("8_v02cl")]
-position = Vector2(-232, -220)
 
 [node name="Player" parent="." instance=ExtResource("1_5n6er")]
 unique_name_in_owner = true

@@ -1,8 +1,14 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cmdts4siji57p"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cmdts4siji57p"]
 
 [ext_resource type="StyleBox" uid="uid://c2mosk06k33ve" path="res://assets/themes/main/disabled_nine.tres" id="1_dnerv"]
 [ext_resource type="StyleBox" uid="uid://tqoeokjn3i2l" path="res://assets/themes/main/black_nine.tres" id="2_mm7pt"]
 [ext_resource type="StyleBox" uid="uid://gwn7qlbhsqim" path="res://assets/themes/main/white_nine.tres" id="3_6eydf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbml8"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1epqq"]
+bg_color = Color(0, 0, 0, 1)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -10,9 +16,26 @@ Button/colors/font_disabled_color = Color(0, 0, 0, 0.658824)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 12
 Button/font_sizes/font_size = 8
 Button/styles/disabled = ExtResource("1_dnerv")
 Button/styles/focus = ExtResource("2_mm7pt")
 Button/styles/hover = ExtResource("2_mm7pt")
 Button/styles/normal = ExtResource("3_6eydf")
 Button/styles/pressed = ExtResource("3_6eydf")
+TabBar/constants/h_separation = 8
+TabBar/font_sizes/font_size = 8
+TabContainer/colors/drop_mark_color = Color(1, 1, 1, 1)
+TabContainer/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+TabContainer/colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
+TabContainer/colors/font_outline_color = Color(1, 1, 1, 1)
+TabContainer/colors/font_selected_color = Color(0.95, 0.95, 0.95, 1)
+TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
+TabContainer/font_sizes/font_size = 8
+TabContainer/styles/panel = SubResource("StyleBoxFlat_vbml8")
+TabContainer/styles/tab_disabled = ExtResource("3_6eydf")
+TabContainer/styles/tab_focus = ExtResource("2_mm7pt")
+TabContainer/styles/tab_hovered = ExtResource("3_6eydf")
+TabContainer/styles/tab_selected = ExtResource("2_mm7pt")
+TabContainer/styles/tab_unselected = ExtResource("3_6eydf")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_1epqq")
