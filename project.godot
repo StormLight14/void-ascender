@@ -12,7 +12,7 @@ config_version=5
 
 config/name="void-ascender"
 run/main_scene="res://ui/menu/menu_ui.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
@@ -70,5 +70,6 @@ climb={
 2d_physics/size/mode=0
 
 [rendering]
-
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/canvas_textures/default_texture_filter=0
