@@ -9,7 +9,7 @@ enum {
 const MAX_SPEED = 150.0
 const ACCELERATION = 850.0
 const JUMP_VELOCITY = -275.0
-const CLIMB_SPEED = 100.0
+const CLIMB_SPEED = 75.0
 const MAX_STAMINA = 1500
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -81,12 +81,13 @@ func handle_climbing(delta):
 			state = CLIMBING
 			
 		if Input.is_action_just_pressed("jump"):
-			velocity.y = JUMP_VELOCITY / 1.5
-			if left_has_wall:
-				velocity.x = -JUMP_VELOCITY / 1.5
-			elif right_has_wall:
-				velocity.x = JUMP_VELOCITY / 1.5
-			player_stamina -= 200 * delta
+			if player_stamina >= 200:
+				velocity.y = JUMP_VELOCITY / 1.5
+				if left_has_wall:
+					velocity.x = -JUMP_VELOCITY / 1.5
+				elif right_has_wall:
+					velocity.x = JUMP_VELOCITY / 1.5
+				player_stamina -= 200
 		elif left_has_wall and Input.is_action_pressed("left") or right_has_wall and Input.is_action_pressed("right"):
 			velocity.y = -CLIMB_SPEED
 			player_stamina -= 200 * delta

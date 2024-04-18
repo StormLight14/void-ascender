@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkhq4rsyosghj"]
+[gd_scene load_steps=9 format=3 uid="uid://bkhq4rsyosghj"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_nhuf3"]
 [ext_resource type="Texture2D" uid="uid://v6fkq0hn5rut" path="res://assets/player/clark.png" id="2_gh0m4"]
+[ext_resource type="Texture2D" uid="uid://bknvygwijbbua" path="res://assets/lighting/point_light.webp" id="3_ctujr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83g1y"]
 bg_color = Color(0.427451, 0.427451, 0.427451, 0.72549)
@@ -89,6 +90,11 @@ max_results = 4
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+energy = 0.85
+texture = ExtResource("3_ctujr")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]

@@ -41,11 +41,14 @@ grow_vertical = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="CenterContainer/HBoxContainer"]
+[node name="Start" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 30)
 layout_mode = 2
 text = "START FROM BEGINNING"
 
-[node name="Button" type="Button" parent="CenterContainer/HBoxContainer"]
+[node name="Continue" type="Button" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "CONTINUE FROM CHECKPOINT"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
