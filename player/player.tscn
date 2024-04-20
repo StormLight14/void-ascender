@@ -18,7 +18,7 @@ height = 16.0
 size = Vector2(10, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpfh6"]
-size = Vector2(1, 12)
+size = Vector2(1, 10)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 8
@@ -30,6 +30,7 @@ script = ExtResource("1_nhuf3")
 
 [node name="Hearts" type="HBoxContainer" parent="PlayerUI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 2.0
@@ -40,6 +41,7 @@ grow_horizontal = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
 unique_name_in_owner = true
+visible = false
 offset_left = 340.0
 offset_top = 1.0
 offset_right = 478.0

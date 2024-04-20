@@ -23,13 +23,11 @@ var can_regenerate_stamina = true
 @onready var hearts = %Hearts
 @onready var stamina_timer = %StaminaTimer
 
-@export var player_hearts = 3
-
 signal killed
 
 func _ready():
 	update_climb_ui()
-	update_hearts()
+	#update_hearts()
 
 func _physics_process(delta):
 	match state:
@@ -130,6 +128,7 @@ func handle_gravity(delta, gravity_scale):
 	if not is_on_floor():
 		velocity.y += gravity * gravity_scale * delta
 
+"""
 func update_hearts():
 	var heart = preload("res://ui/heart.tscn")
 	for heart_node in hearts.get_children():
@@ -137,16 +136,10 @@ func update_hearts():
 		
 	for i in range(player_hearts):
 		hearts.add_child(heart.instantiate())
+"""
 
 func _on_hurtbox_area_entered(area):
-	if area.get_node("Hazard").hazard_type != "void" and player_hearts > 1:
-		player_hearts -= 1
-		update_hearts()
-		return
-
 	killed.emit()
-	player_hearts = 3
-	update_hearts()
 
 func _on_stamina_timer_timeout():
 	can_regenerate_stamina = true
