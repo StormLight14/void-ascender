@@ -77,6 +77,12 @@ func handle_climbing(delta):
 	var on_wall = left_has_wall or right_has_wall
 	
 	if Input.is_action_pressed("climb") and on_wall and not is_on_floor() and player_stamina > 0:
+		if left_has_wall:
+			%Sprite2D.rotation_degrees = 90
+			%CollisionShape2D.rotation_degrees = 180
+		if right_has_wall:
+			%Sprite2D.rotation_degrees = -90
+			%CollisionShape2D.rotation_degrees = 0
 		if state != CLIMBING:
 			state = CLIMBING
 			
@@ -100,6 +106,8 @@ func handle_climbing(delta):
 			
 		update_climb_ui()
 	else:
+		%Sprite2D.rotation_degrees = 0
+		%CollisionShape2D.rotation_degrees = 90
 		state = IDLE
 		
 func update_climb_ui():
