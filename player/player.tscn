@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkhq4rsyosghj"]
+[gd_scene load_steps=13 format=3 uid="uid://bkhq4rsyosghj"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_nhuf3"]
+[ext_resource type="Texture2D" uid="uid://bpf3e7rrfkaa1" path="res://assets/player/player_idle.png" id="2_ew1pi"]
 [ext_resource type="Texture2D" uid="uid://qcxk4cdkbelx" path="res://assets/player/player.png" id="2_k585w"]
 [ext_resource type="Texture2D" uid="uid://bknvygwijbbua" path="res://assets/lighting/point_light.webp" id="3_ctujr"]
 
@@ -9,6 +10,44 @@ bg_color = Color(0.427451, 0.427451, 0.427451, 0.72549)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_witdj"]
 bg_color = Color(0, 0.721569, 0.262745, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok0wd"]
+atlas = ExtResource("2_ew1pi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyws4"]
+atlas = ExtResource("2_ew1pi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ys70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k585w")
+}],
+"loop": true,
+"name": &"climbing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok0wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyws4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 0.75
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k585w")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gixw"]
 radius = 5.0
@@ -53,9 +92,10 @@ max_value = 1500.0
 step = 1.0
 value = 100.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_k585w")
+sprite_frames = SubResource("SpriteFrames_3ys70")
+animation = &"climbing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -91,7 +131,7 @@ max_results = 4
 
 [node name="StaminaTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -100,4 +140,3 @@ energy = 0.85
 texture = ExtResource("3_ctujr")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
