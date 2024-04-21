@@ -15,7 +15,6 @@ const MAX_STAMINA = 1500
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
 var player_stamina = MAX_STAMINA
-var can_regenerate_stamina = true
 
 @onready var climb_checker_left = %ClimbCheckerLeft
 @onready var climb_checker_right = %ClimbCheckerRight
@@ -69,15 +68,13 @@ func state_climbing(delta):
 func handle_stamina(delta):
 	if player_stamina < 0:
 		player_stamina = 0
-	
-	if can_regenerate_stamina:
+		stamina_timer.start()
+	if is_on_floor() and stamina_timer.is_stopped():
 		if player_stamina < MAX_STAMINA:
-			player_stamina += 150 * delta
+			player_stamina += 500 * delta
 		else:
 			player_stamina = MAX_STAMINA
-	else:
-		stamina_timer.start()
-	update_climb_ui()
+		update_climb_ui()
 	
 func handle_climbing(delta):
 	var left_has_wall = climb_checker_left.is_colliding()
@@ -116,7 +113,7 @@ func handle_climbing(delta):
 	else:
 		animated_sprite_2d.rotation_degrees = 0
 		%CollisionShape2D.rotation_degrees = 90
-		state = IDLE
+		state = RUNNING
 		
 func update_climb_ui():
 	progress_bar.value = player_stamina
@@ -127,7 +124,8 @@ func handle_movement(delta):
 		state = RUNNING
 		velocity.x = move_toward(velocity.x, MAX_SPEED * direction, ACCELERATION * delta)
 	else:
-		state = IDLE
+		if %IdleTimer.is_stopped():
+			%IdleTimer.start()
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
 	
 func handle_jump():
@@ -150,3 +148,9 @@ func update_hearts():
 
 func _on_hurtbox_area_entered(area):
 	killed.emit()
+
+func _on_idle_timer_timeout():
+	state = IDLE
+
+func _on_stamina_timer_timeout():
+	player_stamina = MAX_STAMINA

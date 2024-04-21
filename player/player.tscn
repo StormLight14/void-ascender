@@ -80,7 +80,6 @@ grow_horizontal = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
 unique_name_in_owner = true
-visible = false
 offset_left = 340.0
 offset_top = 1.0
 offset_right = 478.0
@@ -131,7 +130,7 @@ max_results = 4
 
 [node name="StaminaTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -139,4 +138,11 @@ visible = false
 energy = 0.85
 texture = ExtResource("3_ctujr")
 
+[node name="IdleTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
