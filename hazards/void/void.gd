@@ -6,6 +6,8 @@ extends Area2D
 @export var h_effect_distance = 50
 @export var v_effect_distance = 50
 
+var ROW_OFFSET = -width / 2
+
 var rng = RandomNumberGenerator.new()
 var effect_velocities = [-1, 1]
 
@@ -17,7 +19,7 @@ func _ready():
 	for row in range(width / h_effect_distance):
 		for col in range(height / v_effect_distance):
 			var void_effect = preload("res://hazards/void/void_effect.tscn").instantiate()
-			void_effect.global_position.x = row * h_effect_distance + rng.randf_range(-15, 15)
+			void_effect.global_position.x = row * h_effect_distance + rng.randf_range(-15, 15) + ROW_OFFSET
 			void_effect.global_position.y = col * v_effect_distance + rng.randf_range(-15, 15)
 			void_effect.velocity = Vector2(effect_velocities[rng.randi_range(0, 1)], effect_velocities[rng.randi_range(0, 1)])
 			add_child(void_effect)
@@ -32,7 +34,7 @@ func _process(delta):
 		elif effect.global_position.y > global_position.y + height:
 			effect.velocity.y *= -1
 			effect.global_position.y = global_position.y + height
-		if effect.global_position.x < global_position.x:
+		if effect.global_position.x < global_position.x + ROW_OFFSET:
 			effect.velocity.x *= -1
 			effect.global_position.x = global_position.x + 1
 		elif effect.global_position.x > global_position.x + width:

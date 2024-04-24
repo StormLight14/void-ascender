@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bknvygwijbbua"
-path="res://.godot/imported/point_light.webp-9463abe53b25f924728a6aae800cf44d.ctex"
+uid="uid://dewminr7sd8rt"
+path="res://.godot/imported/point_light.png-d18b96b611c8ae1e853ff1d02712fcf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lighting/point_light.webp"
-dest_files=["res://.godot/imported/point_light.webp-9463abe53b25f924728a6aae800cf44d.ctex"]
+source_file="res://assets/lighting/point_light.png"
+dest_files=["res://.godot/imported/point_light.png-d18b96b611c8ae1e853ff1d02712fcf6.ctex"]
 
 [params]
 

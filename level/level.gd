@@ -7,7 +7,7 @@ extends Node2D
 var player_spawn = Vector2(0, 0)
 
 func _ready():
-	modulate = Color(1, 1, 1, 1)
+	modulate = Color(1, 1, 1, 0.8)
 	player_spawn = player.global_position
 	player.killed.connect(player_killed)
 	the_void.set_reset_position(player.global_position)
