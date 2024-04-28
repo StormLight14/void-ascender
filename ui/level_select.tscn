@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/level_select.gd" id="1_wog0r"]
 [ext_resource type="Script" path="res://ui/level_button.gd" id="2_n4hpg"]
-[ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="3_uhoxl"]
+[ext_resource type="PackedScene" uid="uid://bhcclvryqg1yr" path="res://level/levels/tutorial.tscn" id="3_e3cml"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -36,7 +36,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Tutorial Level"
 script = ExtResource("2_n4hpg")
-level_scene = ExtResource("3_uhoxl")
+level_scene = ExtResource("3_e3cml")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

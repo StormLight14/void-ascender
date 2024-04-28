@@ -51,8 +51,10 @@ func state_idle(delta):
 	handle_stamina(delta)
 	
 func state_running(delta):
-	if animated_sprite_2d.animation != "running":
+	if velocity.x:
 		animated_sprite_2d.play("running")
+	else:
+		animated_sprite_2d.play("stopped")
 	handle_movement(delta)
 	handle_jump()
 	handle_gravity(delta, 1)
