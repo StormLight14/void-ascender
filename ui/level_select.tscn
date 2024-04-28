@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnby7a6aqmg2w"]
+[gd_scene load_steps=4 format=3 uid="uid://cnby7a6aqmg2w"]
 
 [ext_resource type="Script" path="res://ui/level_select.gd" id="1_wog0r"]
+[ext_resource type="Script" path="res://ui/level_button.gd" id="2_n4hpg"]
+[ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="3_uhoxl"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -20,12 +22,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LevelButtons" type="HBoxContainer" parent="."]
+[node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 24.0
+offset_bottom = 201.0
 grow_horizontal = 2
+
+[node name="LevelButtons" type="HBoxContainer" parent="CenterContainer2"]
+layout_mode = 2
+
+[node name="Tutorial" type="Button" parent="CenterContainer2/LevelButtons" groups=["LevelButton"]]
+layout_mode = 2
+text = "Tutorial Level"
+script = ExtResource("2_n4hpg")
+level_scene = ExtResource("3_uhoxl")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -42,13 +53,18 @@ grow_vertical = 0
 layout_mode = 2
 
 [node name="Start" type="Button" parent="CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 30)
 layout_mode = 2
+disabled = true
 text = "START FROM BEGINNING"
 
 [node name="Continue" type="Button" parent="CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+disabled = true
 text = "CONTINUE FROM CHECKPOINT"
 
+[connection signal="pressed" from="CenterContainer2/LevelButtons/Tutorial" to="CenterContainer2/LevelButtons/Tutorial" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]

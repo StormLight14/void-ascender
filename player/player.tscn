@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkhq4rsyosghj"]
+[gd_scene load_steps=18 format=3 uid="uid://bkhq4rsyosghj"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_nhuf3"]
 [ext_resource type="Texture2D" uid="uid://bpf3e7rrfkaa1" path="res://assets/player/player_idle.png" id="2_ew1pi"]
@@ -35,6 +35,10 @@ region = Rect2(0, 0, 16, 20)
 atlas = ExtResource("4_7j80e")
 region = Rect2(16, 0, 16, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_71kdc"]
+atlas = ExtResource("2_ew1pi")
+region = Rect2(0, 0, 16, 21)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ys70"]
 animations = [{
 "frames": [{
@@ -68,6 +72,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71kdc")
+}],
+"loop": true,
+"name": &"stopped",
 "speed": 5.0
 }]
 
@@ -116,8 +128,7 @@ value = 100.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3ys70")
-animation = &"climbing"
-frame_progress = 0.0104578
+animation = &"stopped"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

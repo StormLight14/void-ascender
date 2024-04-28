@@ -43,10 +43,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func state_idle(delta):
-	if animated_sprite_2d.animation != "idle":
-		animated_sprite_2d.play("idle")
-	if velocity != Vector2.ZERO:
-		state = RUNNING
+	animated_sprite_2d.play("idle")
+	
 	handle_movement(delta)
 	handle_jump()
 	handle_gravity(delta, 1)
@@ -82,12 +80,6 @@ func handle_climbing(delta):
 	var on_wall = left_has_wall or right_has_wall
 	
 	if Input.is_action_pressed("climb") and on_wall and not is_on_floor() and player_stamina > 0 and stamina_timer.is_stopped():
-		if left_has_wall:
-			animated_sprite_2d.rotation_degrees = 90
-			%CollisionShape2D.rotation_degrees = 180
-		if right_has_wall:
-			animated_sprite_2d.rotation_degrees = -90
-			%CollisionShape2D.rotation_degrees = 0
 		if state != CLIMBING:
 			state = CLIMBING
 			
@@ -110,22 +102,23 @@ func handle_climbing(delta):
 			velocity.y = move_toward(velocity.y, 0, ACCELERATION * delta)
 			
 		update_climb_ui()
-	else:
-		animated_sprite_2d.rotation_degrees = 0
-		%CollisionShape2D.rotation_degrees = 90
-		state = RUNNING
 		
 func update_climb_ui():
 	progress_bar.value = player_stamina
 	
 func handle_movement(delta):
 	var direction = Input.get_axis("left", "right")
+	if Input.is_action_just_pressed("left"):
+		animated_sprite_2d.flip_h = true
+	if Input.is_action_just_pressed("right"):
+		animated_sprite_2d.flip_h = false
 	if direction and state != CLIMBING:
 		state = RUNNING
 		velocity.x = move_toward(velocity.x, MAX_SPEED * direction, ACCELERATION * delta)
 	else:
 		if %IdleTimer.is_stopped():
 			%IdleTimer.start()
+			animated_sprite_2d.play("stopped")
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
 	
 func handle_jump():
