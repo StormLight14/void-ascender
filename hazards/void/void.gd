@@ -5,13 +5,13 @@ extends Area2D
 @export var spawn_distance_from_player = 300
 @export var h_effect_distance = 50
 @export var v_effect_distance = 50
+@export var speed = 25
 
 var ROW_OFFSET = -width / 2
 
 var rng = RandomNumberGenerator.new()
 var effect_velocities = [-1, 1]
 
-var speed = 25
 var reset_position = Vector2.ZERO
 var count = 0
 

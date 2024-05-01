@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var dialog_name: String
+
 @onready var player = %Player
 @onready var the_void = %Void
 @onready var game_ui = %GameUI
@@ -17,6 +19,9 @@ func _ready():
 		
 	for checkpoint in get_tree().get_nodes_in_group("Checkpoint"):
 		checkpoint.captured.connect(checkpoint_captured)
+		
+	if dialog_name:
+		Dialogic.start(dialog_name)
 	
 func _process(_delta):
 	game_ui.get_node("VoidDistance").text = str(round(get_void_distance())) + "m..."
