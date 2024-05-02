@@ -31,14 +31,13 @@ func _ready():
 	#update_hearts()
 
 func _physics_process(delta):
-	if Dialogic.current_timeline == null:
-		match state:
-			IDLE:
-				state_idle(delta)
-			RUNNING:
-				state_running(delta)
-			CLIMBING:
-				state_climbing(delta)
+	match state:
+		IDLE:
+			state_idle(delta)
+		RUNNING:
+			state_running(delta)
+		CLIMBING:
+			state_climbing(delta)
 
 	handle_climbing(delta)
 	move_and_slide()

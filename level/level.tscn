@@ -837,6 +837,8 @@ motion_mirroring = Vector2(1000, 600)
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
+[node name="Objects" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("1_5n6er")]
 unique_name_in_owner = true
 position = Vector2(0, 3.685)

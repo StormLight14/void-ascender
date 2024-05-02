@@ -1,3 +1,15 @@
 extends Area2D
 
-@export var dialog: String
+@export var dialog_name: String
+
+var can_interact = false
+
+func _process(_delta):
+	if Input.is_action_just_pressed("interact") and can_interact and Dialogic.current_timeline == null and dialog_name:
+		Dialogic.start(dialog_name)
+
+func _on_body_entered(body):
+	can_interact = true
+
+func _on_body_exited(body):
+	can_interact = false
