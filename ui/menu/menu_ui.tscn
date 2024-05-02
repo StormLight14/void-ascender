@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cmdts4siji57p" path="res://assets/themes/main/main_theme.tres" id="2_bl1fl"]
 
 [node name="MenuUI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

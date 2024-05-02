@@ -820,6 +820,7 @@ sources/0 = SubResource("TileSetAtlasSource_gvql2")
 sources/1 = SubResource("TileSetAtlasSource_bxhi7")
 
 [node name="Level" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_oeuyb")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

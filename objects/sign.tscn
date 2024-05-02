@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvyicici3u1vt"]
+
+[ext_resource type="Script" path="res://objects/sign.gd" id="1_2peb4"]
+
+[node name="Sign" type="Area2D"]
+script = ExtResource("1_2peb4")
