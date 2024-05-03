@@ -21,6 +21,7 @@ shape = SubResource("RectangleShape2D_qptk8")
 
 [node name="Arrow" parent="." instance=ExtResource("3_bv7h2")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -14)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
