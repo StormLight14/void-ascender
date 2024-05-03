@@ -115,8 +115,9 @@ func handle_movement(delta):
 	if Input.is_action_just_pressed("right"):
 		animated_sprite_2d.flip_h = false
 	if direction and state != CLIMBING:
-		state = RUNNING
-		velocity.x = move_toward(velocity.x, MAX_SPEED * direction, ACCELERATION * delta)
+		if Dialogic.current_timeline == null:
+			state = RUNNING
+			velocity.x = move_toward(velocity.x, MAX_SPEED * direction, ACCELERATION * delta)
 	else:
 		if %IdleTimer.is_stopped():
 			%IdleTimer.start()
@@ -124,7 +125,7 @@ func handle_movement(delta):
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
 	
 func handle_jump():
-	if Input.is_action_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor() and Dialogic.current_timeline == null:
 		velocity.y = JUMP_VELOCITY
 
 func handle_gravity(delta, gravity_scale):
