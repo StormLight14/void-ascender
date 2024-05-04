@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5iiukn286wru" path="res://objects/arrow.tscn" id="3_bv7h2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qptk8"]
-size = Vector2(48, 22)
+size = Vector2(48, 26)
 
 [node name="Sign" type="Area2D"]
 collision_layer = 4
@@ -16,7 +16,7 @@ script = ExtResource("1_2peb4")
 texture = ExtResource("2_borgq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_qptk8")
 
 [node name="Arrow" parent="." instance=ExtResource("3_bv7h2")]

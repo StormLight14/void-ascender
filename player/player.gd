@@ -142,6 +142,16 @@ func update_hearts():
 		hearts.add_child(heart.instantiate())
 """
 
+func start_broadcast(message, font_size, seconds):
+	%BroadcastLabel.text = message
+	%BroadcastTimer.wait_time = seconds
+	%BroadcastTimer.start()
+	%BroadcastLabel.add_theme_font_size_override("Pixeled", font_size)
+	%AnimationPlayer.play("broadcast_fade_in")
+	
+func _on_broadcast_timer_timeout():
+	%AnimationPlayer.play("broadcast_fade_out")
+
 func _on_hurtbox_area_entered(area):
 	killed.emit()
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhcclvryqg1yr"]
+[gd_scene load_steps=5 format=3 uid="uid://bhcclvryqg1yr"]
 
 [ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="1_qlds4"]
 [ext_resource type="Texture2D" uid="uid://cgx8trbatcdeq" path="res://assets/backgrounds/sky_bg.png" id="2_gbcy5"]
 [ext_resource type="PackedScene" uid="uid://cvyicici3u1vt" path="res://objects/sign.tscn" id="3_0xh6f"]
+[ext_resource type="PackedScene" uid="uid://c0cblr6ryv046" path="res://level/event_trigger.tscn" id="4_5mt8t"]
 
 [node name="Level" instance=ExtResource("1_qlds4")]
 
@@ -11,12 +12,16 @@ texture = ExtResource("2_gbcy5")
 
 [node name="Sign" parent="Objects" index="0" instance=ExtResource("3_0xh6f")]
 position = Vector2(100, 24)
-dialog_name = "tutorial"
+dialog_name = "tutorial1"
 
 [node name="TileMap" parent="." index="5"]
-layer_0/tile_data = PackedInt32Array(131071, 65537, 0, 65536, 65537, 0, 65537, 131073, 0, 131073, 131073, 2, 131072, 65537, 2, 196607, 65537, 2, 131070, 1, 0, 196606, 1, 2, 131076, 1, 0, 196612, 1, 2, 196613, 65537, 2, 196614, 65537, 2, 196615, 131073, 2, 131079, 131073, 0, 131078, 65537, 0, 131077, 65537, 0, 65546, 1, 0, 131082, 1, 2, 131083, 65537, 2, 131084, 65537, 2, 65548, 65537, 0, 65547, 65537, 0, 65549, 131073, 0, 131085, 131073, 2, 131088, 1, 0, 196624, 1, 2, 196625, 65537, 2, 196626, 65537, 2, 196627, 131073, 2, 131091, 131073, 0, 131090, 65537, 0, 131089, 65537, 0)
+layer_0/tile_data = PackedInt32Array(131076, 65537, 0, 196612, 65537, 2, 196613, 65537, 2, 196614, 65537, 2, 196615, 131073, 2, 131079, 131073, 0, 131078, 65537, 0, 131077, 65537, 0, 65546, 1, 0, 131082, 1, 2, 131083, 65537, 2, 131084, 65537, 2, 65548, 65537, 0, 65547, 65537, 0, 65549, 131073, 0, 131085, 131073, 2, 131088, 1, 0, 196624, 1, 2, 196625, 65537, 2, 196626, 65537, 2, 196627, 131073, 2, 131091, 131073, 0, 131090, 65537, 0, 131089, 65537, 0, 131075, 65537, 0, 131074, 65537, 0, 131073, 65537, 0, 131072, 65537, 0, 196607, 1, 0, 262143, 1, 2, 196608, 65537, 2, 196609, 65537, 2, 196610, 65537, 2, 196611, 65537, 2)
 
 [node name="Void" parent="." index="6"]
 speed = 0
+
+[node name="EventTrigger" parent="." index="8" instance=ExtResource("4_5mt8t")]
+position = Vector2(0, 21)
+str_args = Array[String](["Broadcasting a cool mesage to youaasdfasdfasd fsadfs fd!"])
 
 [connection signal="body_exited" from="Objects/Sign" to="Objects/Sign" method="_on_body_exited"]

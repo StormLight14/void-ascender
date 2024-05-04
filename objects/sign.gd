@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var dialog_name: String
+@export var dialog_name: String = "placeholder"
 
 var can_interact = false
 

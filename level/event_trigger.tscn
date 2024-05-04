@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0cblr6ryv046"]
+
+[ext_resource type="Script" path="res://level/event_trigger.gd" id="1_sndq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0o2w"]
+
+[node name="EventTrigger" type="Area2D"]
+collision_mask = 8
+script = ExtResource("1_sndq1")
+event = "broadcast"
+str_args = Array[String](["Broadcasting a cool mesage to youaasdfasdfasdfsadfsfd!"])
+int_args = Array[int]([5, 5])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w0o2w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
