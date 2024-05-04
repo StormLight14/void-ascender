@@ -16,6 +16,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
 var player_stamina = MAX_STAMINA
 
+var broadcast_data = [[""], 0]
+
 @onready var climb_checker_left = %ClimbCheckerLeft
 @onready var climb_checker_right = %ClimbCheckerRight
 @onready var progress_bar = %ProgressBar
@@ -142,8 +144,8 @@ func update_hearts():
 		hearts.add_child(heart.instantiate())
 """
 
-func start_broadcast(message, font_size, seconds, offset):
-	%BroadcastLabel.text = message
+func start_broadcast(messages, font_size, seconds, offset):
+	%BroadcastLabel.text = messages[0]
 	%BroadcastLabel.set("theme_override_font_sizes/font_size", font_size)
 	%BroadcastLabel.set("position", Vector2(0 + offset.x, 121 + offset.y))
 	%BroadcastTimer.wait_time = seconds

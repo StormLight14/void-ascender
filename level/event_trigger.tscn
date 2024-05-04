@@ -8,8 +8,7 @@
 collision_mask = 8
 script = ExtResource("1_sndq1")
 event = "broadcast"
-str_args = Array[String](["Broadcasting a cool mesage to youaasdfasdfasdfsadfsfd!"])
-int_args = Array[int]([5, 5])
+str_args = Array[String](["Empty Broadcast"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w0o2w")

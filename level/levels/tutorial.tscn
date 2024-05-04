@@ -22,8 +22,8 @@ speed = 0
 
 [node name="EventTrigger" parent="." index="8" instance=ExtResource("4_5mt8t")]
 position = Vector2(0, 21)
-trigger_limit = 1
-str_args = Array[String](["Broadcasting a cool mesage to youaasdfasdfasd fsadfs fd!"])
-vec2_args = Array[Vector2]([Vector2(0, -15)])
+str_args = Array[String](["Void Ascender"])
+num_args = Array[float]([7.0, 4.5])
+vec2_args = Array[Vector2]([Vector2(0, -30)])
 
 [connection signal="body_exited" from="Objects/Sign" to="Objects/Sign" method="_on_body_exited"]
