@@ -142,11 +142,12 @@ func update_hearts():
 		hearts.add_child(heart.instantiate())
 """
 
-func start_broadcast(message, font_size, seconds):
+func start_broadcast(message, font_size, seconds, offset):
 	%BroadcastLabel.text = message
+	%BroadcastLabel.set("theme_override_font_sizes/font_size", font_size)
+	%BroadcastLabel.set("position", Vector2(0 + offset.x, 121 + offset.y))
 	%BroadcastTimer.wait_time = seconds
 	%BroadcastTimer.start()
-	%BroadcastLabel.set("theme_override_font_sizes/font_size", font_size)
 	%AnimationPlayer.play("broadcast_fade_in")
 	
 func _on_broadcast_timer_timeout():
