@@ -12,5 +12,6 @@ str_args = Array[String](["Empty Broadcast"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w0o2w")
+debug_color = Color(0.955121, 0, 0.544875, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -14,16 +14,21 @@ texture = ExtResource("2_gbcy5")
 position = Vector2(100, 24)
 dialog_name = "tutorial1"
 
-[node name="TileMap" parent="." index="5"]
-layer_0/tile_data = PackedInt32Array(131076, 65537, 0, 196612, 65537, 2, 196613, 65537, 2, 196614, 65537, 2, 196615, 131073, 2, 131079, 131073, 0, 131078, 65537, 0, 131077, 65537, 0, 65546, 1, 0, 131082, 1, 2, 131083, 65537, 2, 131084, 65537, 2, 65548, 65537, 0, 65547, 65537, 0, 65549, 131073, 0, 131085, 131073, 2, 131088, 1, 0, 196624, 1, 2, 196625, 65537, 2, 196626, 65537, 2, 196627, 131073, 2, 131091, 131073, 0, 131090, 65537, 0, 131089, 65537, 0, 131075, 65537, 0, 131074, 65537, 0, 131073, 65537, 0, 131072, 65537, 0, 196607, 1, 0, 262143, 1, 2, 196608, 65537, 2, 196609, 65537, 2, 196610, 65537, 2, 196611, 65537, 2)
-
-[node name="Void" parent="." index="6"]
-speed = 0
-
-[node name="EventTrigger" parent="." index="8" instance=ExtResource("4_5mt8t")]
+[node name="TitleTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_5mt8t")]
 position = Vector2(0, 21)
 str_args = Array[String](["Void Ascender"])
 num_args = Array[float]([7.0, 4.5])
 vec2_args = Array[Vector2]([Vector2(0, -30)])
+
+[node name="DialogTrigger" parent="EventTriggers" index="1" instance=ExtResource("4_5mt8t")]
+position = Vector2(59, 12)
+event = "dialog"
+str_args = Array[String](["tutorial1"])
+
+[node name="TileMap" parent="." index="6"]
+layer_0/tile_data = PackedInt32Array(131076, 65537, 0, 196612, 65537, 2, 196613, 65537, 2, 196614, 65537, 2, 196615, 131073, 2, 131079, 131073, 0, 131078, 65537, 0, 131077, 65537, 0, 65546, 1, 0, 131082, 1, 2, 131083, 65537, 2, 131084, 65537, 2, 65548, 65537, 0, 65547, 65537, 0, 65549, 131073, 0, 131085, 131073, 2, 131088, 1, 0, 196624, 1, 2, 196625, 65537, 2, 196626, 65537, 2, 196627, 131073, 2, 131091, 131073, 0, 131090, 65537, 0, 131089, 65537, 0, 131075, 65537, 0, 131074, 65537, 0, 131073, 65537, 0, 131072, 65537, 0, 196607, 1, 0, 262143, 1, 2, 196608, 65537, 2, 196609, 65537, 2, 196610, 65537, 2, 196611, 65537, 2)
+
+[node name="Void" parent="." index="7"]
+speed = 0
 
 [connection signal="body_exited" from="Objects/Sign" to="Objects/Sign" method="_on_body_exited"]
