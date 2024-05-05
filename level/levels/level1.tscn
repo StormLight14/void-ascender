@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0higly2fvcaj"]
+
+[ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="1_yoai8"]
+[ext_resource type="Texture2D" uid="uid://cgx8trbatcdeq" path="res://assets/backgrounds/sky_bg.png" id="2_jqxye"]
+[ext_resource type="PackedScene" uid="uid://bvtb88luepxkq" path="res://hazards/fireball/fireball_spawner.tscn" id="3_xpchf"]
+
+[node name="Level" instance=ExtResource("1_yoai8")]
+
+[node name="StaticBackground" parent="ParallaxBackground" index="0"]
+texture = ExtResource("2_jqxye")
+
+[node name="FireballSpawner" parent="Hazards" index="0" instance=ExtResource("3_xpchf")]
+position = Vector2(-85, 8)
+direction = Vector2(1, 0)
+
+[node name="TileMap" parent="." index="6"]
+layer_0/tile_data = PackedInt32Array(131071, 2, 0, 65536, 131074, 0, 131072, 589826, 4, 196607, 2, 2, 131073, 65538, 0, 196609, 65538, 2, 196608, 2, 2, 131074, 131074, 0, 196610, 131074, 2)
