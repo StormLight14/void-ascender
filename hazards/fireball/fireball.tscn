@@ -1,19 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsg3wj6jcoh7d"]
+[gd_scene load_steps=6 format=3 uid="uid://dsg3wj6jcoh7d"]
 
 [ext_resource type="Script" path="res://hazards/fireball/fireball.gd" id="1_c3al3"]
 [ext_resource type="Texture2D" uid="uid://b4sglqbsvbonu" path="res://assets/hazards/fireball.png" id="2_1puo4"]
 [ext_resource type="Texture2D" uid="uid://bngrvqpoyo5k" path="res://assets/particles/fire_trail.png" id="2_ekc4x"]
 [ext_resource type="PackedScene" uid="uid://dp45evj1ucagl" path="res://hazards/hazard.tscn" id="3_6hkta"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwe2e"]
-particle_flag_disable_z = true
-spread = 18.267
-initial_velocity_min = 45.0
-initial_velocity_max = 50.0
-angular_velocity_min = -20.0
-angular_velocity_max = 20.0
-gravity = Vector3(0, 0, 0)
-color = Color(0.89, 0.568117, 0.267, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fuyn"]
 size = Vector2(6, 6)
@@ -23,9 +13,14 @@ collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_c3al3")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-process_material = SubResource("ParticleProcessMaterial_uwe2e")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 texture = ExtResource("2_ekc4x")
+direction = Vector2(-1, 0)
+spread = 18.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.0
+initial_velocity_max = 50.0
+color = Color(0.90331, 0.529104, 0.126136, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1puo4")
