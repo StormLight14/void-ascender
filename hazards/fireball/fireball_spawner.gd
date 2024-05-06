@@ -3,9 +3,9 @@ extends Node2D
 @onready var spawn_timer = $SpawnTimer
 @onready var sprite_2d = $Sprite2D
 
-@export var direction = Vector2(0, 0)
+@export var direction = Vector2(1, 0)
 @export var spawn_delay = 3
-@export var fireball_speed = 100
+@export var fireball_speed = 150
 @export var active = true
 
 signal spawn_fireball(fireball_direction, fireball_speed, spawn_position)

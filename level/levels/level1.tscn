@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0higly2fvcaj"]
+[gd_scene load_steps=5 format=3 uid="uid://c0higly2fvcaj"]
 
 [ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="1_yoai8"]
 [ext_resource type="Texture2D" uid="uid://cgx8trbatcdeq" path="res://assets/backgrounds/sky_bg.png" id="2_jqxye"]
 [ext_resource type="PackedScene" uid="uid://bvtb88luepxkq" path="res://hazards/fireball/fireball_spawner.tscn" id="3_xpchf"]
+[ext_resource type="PackedScene" uid="uid://c0cblr6ryv046" path="res://level/event_trigger.tscn" id="4_ocxmj"]
 
 [node name="Level" instance=ExtResource("1_yoai8")]
 
@@ -11,7 +12,15 @@ texture = ExtResource("2_jqxye")
 
 [node name="FireballSpawner" parent="Hazards" index="0" instance=ExtResource("3_xpchf")]
 position = Vector2(-85, 8)
-direction = Vector2(1, 0)
+
+[node name="LevelTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_ocxmj")]
+position = Vector2(0, 5)
+str_args = Array[String](["Level One"])
+num_args = Array[float]([7.0, 4.0])
+vec2_args = Array[Vector2]([Vector2(0, -30)])
+
+[node name="Player" parent="." index="5"]
+position = Vector2(0, 5)
 
 [node name="TileMap" parent="." index="6"]
-layer_0/tile_data = PackedInt32Array(131071, 2, 0, 65536, 131074, 0, 131072, 589826, 4, 196607, 2, 2, 131073, 65538, 0, 196609, 65538, 2, 196608, 2, 2, 131074, 131074, 0, 196610, 131074, 2)
+layer_0/tile_data = PackedInt32Array(131071, 2, 0, 65536, 131074, 0, 131072, 589826, 4, 196607, 2, 2, 131073, 65538, 0, 196609, 65538, 2, 196608, 2, 2, 131074, 131074, 0, 196610, 131074, 2, 131077, 2, 0, 196613, 2, 2, 196614, 65538, 2, 196615, 65538, 2, 196616, 131074, 2, 131080, 131074, 0, 131079, 65538, 0, 131078, 65538, 0, 65547, 2, 0, 131083, 2, 2, 131084, 65538, 2, 131085, 65538, 2, 131086, 131074, 2, 65550, 131074, 0, 65549, 65538, 0, 65548, 65538, 0)
