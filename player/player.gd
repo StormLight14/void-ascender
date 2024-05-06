@@ -120,11 +120,13 @@ func update_climb_ui():
 func handle_movement(delta):
 	var acceleration = ACCELERATION
 	var deceleration = DECELERATION
+	var max_speed = MAX_SPEED
 	if not is_on_floor():
 		acceleration = AIR_ACCELERATION
 		deceleration = AIR_DECELERATION
 	if exhausted:
 		acceleration /= 2
+		max_speed /= 2
 	
 	var direction = Input.get_axis("left", "right")
 	if Input.is_action_just_pressed("left"):
@@ -134,7 +136,7 @@ func handle_movement(delta):
 	if direction and state != CLIMBING:
 		if Dialogic.current_timeline == null:
 			state = RUNNING
-			velocity.x = move_toward(velocity.x, MAX_SPEED * direction, acceleration * delta)
+			velocity.x = move_toward(velocity.x, max_speed * direction, acceleration * delta)
 	else:
 		if %IdleTimer.is_stopped():
 			%IdleTimer.start()
