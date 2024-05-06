@@ -9,6 +9,6 @@ Currently, I have no binary releases of the game. You can open the project with 
 - [x] Climbing system (Partially Finished)
 - [x] Void rises
 - [x] Main menu
-- [ ] Level select
+- [x] Level select
 - [ ] Saving
 - [ ] Replace placeholder sprites
