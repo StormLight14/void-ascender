@@ -11,7 +11,8 @@
 texture = ExtResource("2_jqxye")
 
 [node name="FireballSpawner" parent="Hazards" index="0" instance=ExtResource("3_xpchf")]
-position = Vector2(-85, 8)
+position = Vector2(264, 80)
+rotation = -1.5708
 
 [node name="LevelTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_ocxmj")]
 position = Vector2(0, 5)
