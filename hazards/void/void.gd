@@ -3,8 +3,8 @@ extends Area2D
 @export var width = 10000
 @export var height = 600
 @export var spawn_distance_from_player = 300
-@export var h_effect_distance = 50
-@export var v_effect_distance = 50
+@export var h_effect_distance = 40
+@export var v_effect_distance = 40
 @export var speed = 25
 
 var ROW_OFFSET = -width / 2
