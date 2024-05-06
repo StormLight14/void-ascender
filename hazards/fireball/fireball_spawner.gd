@@ -3,7 +3,7 @@ extends Node2D
 @onready var spawn_timer = $SpawnTimer
 @onready var sprite_2d = $Sprite2D
 
-@export var spawn_delay = 3
+@export var spawn_delay = 3.0
 @export var fireball_speed = 150
 @export var active = true
 
