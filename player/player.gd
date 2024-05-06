@@ -7,16 +7,18 @@ enum {
 }
 
 const MAX_SPEED = 150.0
-const ACCELERATION = 850.0
 const JUMP_VELOCITY = -275.0
 const CLIMB_SPEED = 75.0
 const MAX_STAMINA = 1500
+const ACCELERATION = 850.0
+const AIR_ACCELERATION = 600.0
+const DECELERATION = 850.0
+const AIR_DECELERATION = 600.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
 var player_stamina = MAX_STAMINA
-
-var broadcast_data = [[""], 0]
+var exhausted = false
 
 @onready var climb_checker_left = %ClimbCheckerLeft
 @onready var climb_checker_right = %ClimbCheckerRight
@@ -70,8 +72,9 @@ func state_climbing(delta):
 func handle_stamina(delta):
 	if player_stamina < 0:
 		player_stamina = 0
+		exhausted = true
 		stamina_timer.start()
-	if is_on_floor() and stamina_timer.is_stopped():
+	if is_on_floor() and not exhausted:
 		if player_stamina < MAX_STAMINA:
 			player_stamina += 500 * delta
 		else:
@@ -83,18 +86,18 @@ func handle_climbing(delta):
 	var right_has_wall = climb_checker_right.is_colliding()
 	var on_wall = left_has_wall or right_has_wall
 	
-	if Input.is_action_pressed("climb") and on_wall and not is_on_floor() and player_stamina > 0 and stamina_timer.is_stopped():
+	if Input.is_action_pressed("climb") and on_wall and not is_on_floor() and player_stamina > 0 and not exhausted:
 		if state != CLIMBING:
 			state = CLIMBING
 			
 		if Input.is_action_just_pressed("jump"):
-			if player_stamina >= 200:
-				velocity.y = JUMP_VELOCITY / 1.5
+			if player_stamina >= 50:
+				velocity.y = JUMP_VELOCITY / 1.2
 				if left_has_wall:
 					velocity.x = -JUMP_VELOCITY / 1.5
 				elif right_has_wall:
 					velocity.x = JUMP_VELOCITY / 1.5
-				player_stamina -= 200
+				player_stamina -= 50
 				state = IDLE
 		elif left_has_wall and Input.is_action_pressed("left") or right_has_wall and Input.is_action_pressed("right"):
 			velocity.y = -CLIMB_SPEED
@@ -115,6 +118,14 @@ func update_climb_ui():
 	progress_bar.value = player_stamina
 	
 func handle_movement(delta):
+	var acceleration = ACCELERATION
+	var deceleration = DECELERATION
+	if not is_on_floor():
+		acceleration = AIR_ACCELERATION
+		deceleration = AIR_DECELERATION
+	if exhausted:
+		acceleration /= 2
+	
 	var direction = Input.get_axis("left", "right")
 	if Input.is_action_just_pressed("left"):
 		animated_sprite_2d.flip_h = true
@@ -123,12 +134,12 @@ func handle_movement(delta):
 	if direction and state != CLIMBING:
 		if Dialogic.current_timeline == null:
 			state = RUNNING
-			velocity.x = move_toward(velocity.x, MAX_SPEED * direction, ACCELERATION * delta)
+			velocity.x = move_toward(velocity.x, MAX_SPEED * direction, acceleration * delta)
 	else:
 		if %IdleTimer.is_stopped():
 			%IdleTimer.start()
 			animated_sprite_2d.play("stopped")
-		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 	
 func handle_jump():
 	if Input.is_action_pressed("jump") and is_on_floor() and Dialogic.current_timeline == null:
@@ -137,16 +148,6 @@ func handle_jump():
 func handle_gravity(delta, gravity_scale):
 	if not is_on_floor():
 		velocity.y += gravity * gravity_scale * delta
-
-"""
-func update_hearts():
-	var heart = preload("res://ui/heart.tscn")
-	for heart_node in hearts.get_children():
-		heart_node.queue_free()
-		
-	for i in range(player_hearts):
-		hearts.add_child(heart.instantiate())
-"""
 
 func start_broadcast(messages, font_size, seconds, offset):
 	%BroadcastLabel.text = messages[0]
@@ -166,4 +167,5 @@ func _on_idle_timer_timeout():
 	state = IDLE
 
 func _on_stamina_timer_timeout():
+	exhausted = false
 	player_stamina = MAX_STAMINA
