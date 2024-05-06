@@ -95,6 +95,7 @@ func handle_climbing(delta):
 				elif right_has_wall:
 					velocity.x = JUMP_VELOCITY / 1.5
 				player_stamina -= 200
+				state = IDLE
 		elif left_has_wall and Input.is_action_pressed("left") or right_has_wall and Input.is_action_pressed("right"):
 			velocity.y = -CLIMB_SPEED
 			player_stamina -= 200 * delta
@@ -106,6 +107,9 @@ func handle_climbing(delta):
 			velocity.y = move_toward(velocity.y, 0, ACCELERATION * delta)
 			
 		update_climb_ui()
+	else:
+		if state == CLIMBING:
+			state = IDLE
 		
 func update_climb_ui():
 	progress_bar.value = player_stamina
