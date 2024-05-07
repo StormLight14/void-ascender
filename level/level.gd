@@ -48,4 +48,3 @@ func checkpoint_captured(checkpoint):
 	checkpoint.capture()
 	player_spawn = checkpoint.global_position
 	the_void.set_reset_position(checkpoint.global_position)
-	print("captured")

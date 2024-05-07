@@ -14,7 +14,7 @@ var direction = Vector2.ZERO
 
 func _ready():
 	direction = Vector2.RIGHT.rotated(rotation)
-	print(direction)
+
 	if active:
 		spawn_timer.wait_time = spawn_delay
 		spawn_timer.start()
