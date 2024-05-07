@@ -34,10 +34,11 @@ func player_killed():
 	the_void.on_player_killed()
 	player.global_position = player_spawn
 
-func spawn_fireball(direction, speed, spawn_position):
+func spawn_fireball(direction, speed, lifetime, spawn_position):
 	var fireball = preload("res://hazards/fireball/fireball.tscn").instantiate()
 	fireball.direction = direction
 	fireball.speed = speed
+	fireball.lifetime = lifetime
 	fireball.global_position = spawn_position
 	add_child(fireball)
 

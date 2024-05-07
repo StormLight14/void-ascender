@@ -171,3 +171,7 @@ func _on_idle_timer_timeout():
 func _on_stamina_timer_timeout():
 	exhausted = false
 	player_stamina = MAX_STAMINA
+
+
+func _on_hurtbox_body_entered(body):
+	killed.emit()

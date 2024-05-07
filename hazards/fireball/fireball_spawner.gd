@@ -5,6 +5,7 @@ extends Node2D
 
 @export var spawn_delay = 3.0
 @export var fireball_speed = 150
+@export var fireball_lifetime = 3
 @export var active = true
 
 signal spawn_fireball(fireball_direction, fireball_speed, spawn_position)
@@ -22,4 +23,4 @@ func _ready():
 		
 
 func _on_spawn_timer_timeout():
-	spawn_fireball.emit(direction, fireball_speed, global_position)
+	spawn_fireball.emit(direction, fireball_speed, fireball_lifetime, global_position)

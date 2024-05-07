@@ -5,7 +5,7 @@ extends Area2D
 
 var direction = Vector2(0, 0)
 var speed = 100.0
-var lifetime = 5 # seconds
+var lifetime = 3 # seconds
 
 func _ready():
 	cpu_particles_2d.direction = direction
