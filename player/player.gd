@@ -95,7 +95,7 @@ func handle_climbing(delta):
 			
 		if Input.is_action_just_pressed("jump"):
 			if player_stamina >= 50:
-				velocity.y = JUMP_VELOCITY
+				velocity.y = JUMP_VELOCITY / 1.1
 				if left_has_wall:
 					velocity.x = -JUMP_VELOCITY / 1.4
 					animated_sprite_2d.flip_h = false
