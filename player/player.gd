@@ -102,16 +102,16 @@ func handle_climbing(delta):
 				elif right_has_wall:
 					velocity.x = JUMP_VELOCITY / 1.4
 					animated_sprite_2d.flip_h = true
-				player_stamina -= 50
+				# player_stamina -= 50
 				state = IDLE
 		elif left_has_wall and Input.is_action_pressed("left") or right_has_wall and Input.is_action_pressed("right"):
 			velocity.y = -CLIMB_SPEED
-			player_stamina -= 200 * delta
+			player_stamina -= 250 * delta
 		elif left_has_wall and Input.is_action_pressed("right") or right_has_wall and Input.is_action_pressed("left"):
 			velocity.y = CLIMB_SPEED
-			player_stamina -= 200 * delta
+			player_stamina -= 250 * delta
 		else:
-			player_stamina -= 100 * delta
+			player_stamina -= 250 * delta
 			velocity.y = move_toward(velocity.y, 0, ACCELERATION * delta)
 			
 		update_climb_ui()
