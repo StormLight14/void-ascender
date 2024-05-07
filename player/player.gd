@@ -79,7 +79,7 @@ func handle_stamina(delta):
 		stamina_timer.start()
 	if is_on_floor() and not exhausted:
 		if player_stamina < MAX_STAMINA:
-			player_stamina += 500 * delta
+			player_stamina += 1500 * delta
 		else:
 			player_stamina = MAX_STAMINA
 		update_climb_ui()

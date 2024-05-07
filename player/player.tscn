@@ -233,7 +233,7 @@ max_results = 4
 
 [node name="StaminaTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -243,7 +243,7 @@ texture = ExtResource("3_ctujr")
 
 [node name="IdleTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="BroadcastTimer" type="Timer" parent="."]
