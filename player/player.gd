@@ -13,7 +13,7 @@ const MAX_STAMINA = 1500
 const ACCELERATION = 850.0
 const AIR_ACCELERATION = 600.0
 const DECELERATION = 850.0
-const AIR_DECELERATION = 600.0
+const AIR_DECELERATION = 475.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
@@ -50,6 +50,7 @@ func state_idle(delta):
 	animated_sprite_2d.play("idle")
 	
 	handle_movement(delta)
+	handle_facing()
 	handle_jump()
 	handle_gravity(delta, 1)
 	handle_stamina(delta)
@@ -61,6 +62,7 @@ func state_running(delta):
 		animated_sprite_2d.play("stopped")
 	handle_movement(delta)
 	handle_jump()
+	handle_facing()
 	handle_gravity(delta, 1)
 	handle_stamina(delta)
 	
@@ -68,6 +70,7 @@ func state_climbing(delta):
 	if animated_sprite_2d.animation != "climbing":
 		animated_sprite_2d.play("climbing")
 	handle_climbing(delta)
+	handle_facing()
 	
 func handle_stamina(delta):
 	if player_stamina < 0:
@@ -92,11 +95,13 @@ func handle_climbing(delta):
 			
 		if Input.is_action_just_pressed("jump"):
 			if player_stamina >= 50:
-				velocity.y = JUMP_VELOCITY / 1.2
+				velocity.y = JUMP_VELOCITY
 				if left_has_wall:
-					velocity.x = -JUMP_VELOCITY / 1.5
+					velocity.x = -JUMP_VELOCITY / 1.4
+					animated_sprite_2d.flip_h = false
 				elif right_has_wall:
-					velocity.x = JUMP_VELOCITY / 1.5
+					velocity.x = JUMP_VELOCITY / 1.4
+					animated_sprite_2d.flip_h = true
 				player_stamina -= 50
 				state = IDLE
 		elif left_has_wall and Input.is_action_pressed("left") or right_has_wall and Input.is_action_pressed("right"):
@@ -129,10 +134,7 @@ func handle_movement(delta):
 		max_speed /= 2
 	
 	var direction = Input.get_axis("left", "right")
-	if Input.is_action_just_pressed("left"):
-		animated_sprite_2d.flip_h = true
-	if Input.is_action_just_pressed("right"):
-		animated_sprite_2d.flip_h = false
+
 	if direction and state != CLIMBING:
 		if Dialogic.current_timeline == null:
 			state = RUNNING
@@ -142,6 +144,18 @@ func handle_movement(delta):
 			%IdleTimer.start()
 			animated_sprite_2d.play("stopped")
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		
+func handle_facing():
+	if state == CLIMBING:
+		if climb_checker_left.is_colliding():
+			animated_sprite_2d.flip_h = true
+		elif climb_checker_right.is_colliding():
+			animated_sprite_2d.flip_h = false
+	else:
+		if Input.is_action_pressed("left"):
+			animated_sprite_2d.flip_h = true
+		if Input.is_action_pressed("right"):
+			animated_sprite_2d.flip_h = false
 	
 func handle_jump():
 	if Input.is_action_pressed("jump") and is_on_floor() and Dialogic.current_timeline == null:
