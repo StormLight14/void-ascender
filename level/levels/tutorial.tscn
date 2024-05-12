@@ -17,7 +17,7 @@ dialog_name = "tutorial1"
 [node name="TitleTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_5mt8t")]
 position = Vector2(0, 21)
 str_args = Array[String](["Void Ascender"])
-num_args = Array[float]([7.0, 4.5])
+num_args = Array[float]([4.5])
 vec2_args = Array[Vector2]([Vector2(0, -30)])
 
 [node name="Player" parent="." index="5"]

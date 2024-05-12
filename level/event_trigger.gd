@@ -9,7 +9,7 @@ extends Area2D
 func _on_body_entered(body):
 	match event:
 		"broadcast":
-			Global.broadcast(str_args) # messages, font size, seconds, offset
+			Global.broadcast(str_args, num_args[0]) # messages, seconds, font size, offset
 		"dialog":
 			Dialogic.start(str_args[0])
 		"hint":

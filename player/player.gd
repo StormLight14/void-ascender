@@ -165,7 +165,7 @@ func handle_gravity(delta, gravity_scale):
 	if not is_on_floor():
 		velocity.y += gravity * gravity_scale * delta
 
-func start_broadcast(messages, font_size, seconds, offset):
+func start_broadcast(messages, seconds, font_size, offset):
 	%BroadcastLabel.text = messages[0]
 	%BroadcastLabel.set("theme_override_font_sizes/font_size", font_size)
 	%BroadcastLabel.set("position", Vector2(0 + offset.x, 121 + offset.y))
