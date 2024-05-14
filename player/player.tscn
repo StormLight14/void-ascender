@@ -183,7 +183,7 @@ offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
+[node name="StaminaBar" type="ProgressBar" parent="PlayerUI"]
 unique_name_in_owner = true
 offset_left = 340.0
 offset_top = 1.0

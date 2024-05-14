@@ -9,7 +9,7 @@ enum {
 const MAX_SPEED = 150.0
 const JUMP_VELOCITY = -275.0
 const CLIMB_SPEED = 75.0
-const MAX_STAMINA = 1500
+const MAX_STAMINA = 1700
 const ACCELERATION = 850.0
 const AIR_ACCELERATION = 600.0
 const DECELERATION = 850.0
@@ -22,7 +22,7 @@ var exhausted = false
 
 @onready var climb_checker_left = %ClimbCheckerLeft
 @onready var climb_checker_right = %ClimbCheckerRight
-@onready var progress_bar = %ProgressBar
+@onready var stamina_bar = %StaminaBar
 @onready var hearts = %Hearts
 @onready var stamina_timer = %StaminaTimer
 @onready var animated_sprite_2d = %AnimatedSprite2D
@@ -32,6 +32,7 @@ signal killed
 func _ready():
 	animated_sprite_2d.play("idle")
 	update_climb_ui()
+	stamina_bar.max_value = MAX_STAMINA
 	#update_hearts()
 
 func _physics_process(delta):
@@ -120,7 +121,7 @@ func handle_climbing(delta):
 			state = IDLE
 		
 func update_climb_ui():
-	progress_bar.value = player_stamina
+	stamina_bar.value = player_stamina
 	
 func handle_movement(delta):
 	var acceleration = ACCELERATION
