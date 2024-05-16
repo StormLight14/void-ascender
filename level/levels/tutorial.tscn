@@ -12,7 +12,6 @@ texture = ExtResource("2_gbcy5")
 
 [node name="Sign" parent="Objects" index="0" instance=ExtResource("3_0xh6f")]
 position = Vector2(100, 24)
-dialog_name = "tutorial1"
 
 [node name="TitleTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_5mt8t")]
 position = Vector2(0, 21)

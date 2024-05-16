@@ -6,7 +6,7 @@ var can_interact = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("interact") and can_interact:
-		print(text)
+		Global.show_sign_text(text)
 
 func _on_body_entered(body):
 	can_interact = true

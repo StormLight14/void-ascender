@@ -32,6 +32,7 @@ position = Vector2(0, -152)
 
 [node name="Sign" parent="Objects" index="0" instance=ExtResource("5_45vfy")]
 position = Vector2(-24, -152)
+text = "Danger! Fireballs ahead."
 
 [node name="LevelTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_ocxmj")]
 position = Vector2(0, 5)

@@ -14,9 +14,12 @@ func broadcast(messages, seconds = 5, font_size = 8, offset = Vector2(0, -30)):
 	%BroadcastTimer.start()
 	%AnimationPlayer.play("broadcast_fade_in")
 	
+func show_sign_text(text):
+	%Sign.visible = true
+	%SignLabel.text = text
+	
 func _on_broadcast_timer_timeout():
 	%AnimationPlayer.play("broadcast_fade_out")
 
 func save_game():
 	pass
-

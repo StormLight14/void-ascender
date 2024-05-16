@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://botv6f64mvdwl"]
+[gd_scene load_steps=7 format=3 uid="uid://botv6f64mvdwl"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_1ro20"]
+[ext_resource type="Texture2D" uid="uid://1utp7ywn4mhs" path="res://assets/ui/sign_background.png" id="2_uwuai"]
 
 [sub_resource type="Animation" id="Animation_x3vgb"]
 length = 0.001
@@ -77,6 +78,39 @@ text = "test text"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Sign" type="MarginContainer" parent="GlobalUI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="SignRect" type="TextureRect" parent="GlobalUI/Sign"]
+layout_mode = 2
+texture = ExtResource("2_uwuai")
+
+[node name="SignLabel" type="Label" parent="GlobalUI/Sign/SignRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = -8.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
