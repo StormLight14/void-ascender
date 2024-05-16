@@ -18,36 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Global.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-
-[dialogic]
-
-directories/dch_directory={}
-directories/dtl_directory={
-"fireball_danger": "res://dialog/signs/fireball_danger.dtl",
-"placeholder": "res://dialog/placeholder.dtl",
-"tutorial1": "res://dialog/signs/tutorial1.dtl"
-}
-variables={}
-layout/style_list=["res://assets/themes/dialog_theme.tres"]
-layout/default_style="res://assets/themes/dialog_theme.tres"
-glossary/default_case_sensitive=true
-text/letter_speed=0.02
-text/initial_text_reveal_skippable=true
-text/text_reveal_skip_delay=0.1
-text/autoadvance_per_character_delay=0.1
-text/autoadvance_ignored_characters_enabled=true
-choices/autofocus_first=true
-choices/delay=0.2
-choices/reveal_delay=0
-choices/reveal_by_input=false
-save/autosave_delay=60.0
-save/encryption_on_exports_only=true
-animations/join_default_length=0.5
-animations/leave_default_length=0.5
-animations/leave_default_wait=true
-animations/join_default_wait=true
-text/autopauses={}
 
 [display]
 
@@ -60,7 +30,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 

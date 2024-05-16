@@ -1,5 +1,7 @@
 extends Node
 
+var ui_open = false
+
 #func _process(_delta):
 #	if Dialogic.current_timeline != null:
 #		get_tree().paused = true

@@ -137,7 +137,7 @@ func handle_movement(delta):
 	var direction = Input.get_axis("left", "right")
 
 	if direction and state != CLIMBING:
-		if Dialogic.current_timeline == null:
+		if Global.ui_open == false:
 			state = RUNNING
 			velocity.x = move_toward(velocity.x, max_speed * direction, acceleration * delta)
 	else:
@@ -159,7 +159,7 @@ func handle_facing():
 			animated_sprite_2d.flip_h = false
 	
 func handle_jump():
-	if Input.is_action_pressed("jump") and is_on_floor() and Dialogic.current_timeline == null:
+	if Input.is_action_pressed("jump") and is_on_floor() and Global.ui_open == false:
 		velocity.y = JUMP_VELOCITY
 
 func handle_gravity(delta, gravity_scale):
@@ -186,7 +186,6 @@ func _on_idle_timer_timeout():
 func _on_stamina_timer_timeout():
 	exhausted = false
 	player_stamina = MAX_STAMINA
-
 
 func _on_hurtbox_body_entered(body):
 	killed.emit()

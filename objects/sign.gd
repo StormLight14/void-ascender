@@ -1,12 +1,12 @@
 extends Area2D
 
-@export var dialog_name: String = "placeholder"
+@export var text: String = ""
 
 var can_interact = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("interact") and can_interact and Dialogic.current_timeline == null and dialog_name:
-		Dialogic.start(dialog_name)
+	if Input.is_action_just_pressed("interact") and can_interact:
+		print(text)
 
 func _on_body_entered(body):
 	can_interact = true

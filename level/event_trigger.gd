@@ -11,7 +11,8 @@ func _on_body_entered(body):
 		"broadcast":
 			Global.broadcast(str_args, num_args[0]) # messages, seconds, font size, offset
 		"dialog":
-			Dialogic.start(str_args[0])
+			#Dialogic.start(str_args[0])
+			pass
 		"hint":
 			Global.show_hint()
 	trigger_limit -= 1
