@@ -122,4 +122,9 @@ libraries = {
 unique_name_in_owner = true
 one_shot = true
 
+[node name="CharDisplayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+
 [connection signal="timeout" from="BroadcastTimer" to="." method="_on_broadcast_timer_timeout"]
+[connection signal="timeout" from="CharDisplayTimer" to="." method="_on_char_display_timer_timeout"]
