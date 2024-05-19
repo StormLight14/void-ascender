@@ -6,7 +6,7 @@ var sign_text = "placeholder"
 var sign_finished = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept") and sign_finished:
+	if Input.is_action_just_pressed("ui_continue") and sign_finished:
 		get_tree().paused = false
 		%Sign.visible = false
 
