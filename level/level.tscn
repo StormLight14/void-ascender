@@ -1324,7 +1324,6 @@ sources/2 = SubResource("TileSetAtlasSource_nw5ac")
 sources/1 = SubResource("TileSetAtlasSource_tff67")
 
 [node name="Level" type="Node2D"]
-process_mode = 3
 script = ExtResource("1_oeuyb")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
