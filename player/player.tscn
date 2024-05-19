@@ -91,7 +91,7 @@ height = 20.0
 size = Vector2(8, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpfh6"]
-size = Vector2(1, 10)
+size = Vector2(1, 12)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 process_mode = 1
