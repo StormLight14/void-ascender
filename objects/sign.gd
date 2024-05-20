@@ -15,3 +15,4 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	can_interact = false
 	%Arrow.visible = false
+	print("exited")
