@@ -10,7 +10,6 @@ func _process(_delta):
 		get_tree().paused = false
 		%Sign.visible = false
 
-
 func broadcast(messages, seconds = 5, font_size = 8, offset = Vector2(0, -30)):
 	%BroadcastLabel.text = messages[0]
 	%BroadcastLabel.set("theme_override_font_sizes/font_size", font_size)
@@ -18,6 +17,9 @@ func broadcast(messages, seconds = 5, font_size = 8, offset = Vector2(0, -30)):
 	%BroadcastTimer.wait_time = seconds
 	%BroadcastTimer.start()
 	%AnimationPlayer.play("broadcast_fade_in")
+	
+func show_hint(hint_message):
+	pass
 	
 func show_sign_text(text):
 	%Sign.visible = true

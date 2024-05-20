@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="1_qlds4"]
 [ext_resource type="Texture2D" uid="uid://cgx8trbatcdeq" path="res://assets/backgrounds/sky_bg.png" id="2_gbcy5"]
 [ext_resource type="PackedScene" uid="uid://cvyicici3u1vt" path="res://objects/sign.tscn" id="3_0xh6f"]
-[ext_resource type="PackedScene" uid="uid://c0cblr6ryv046" path="res://level/event_trigger.tscn" id="4_5mt8t"]
+[ext_resource type="PackedScene" uid="uid://c0cblr6ryv046" path="res://event_triggers/broadcast_trigger.tscn" id="4_5mt8t"]
+
 
 [node name="Level" instance=ExtResource("1_qlds4")]
 
