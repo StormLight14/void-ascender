@@ -25,7 +25,8 @@ func _ready():
 			add_child(void_effect)
 			
 func _process(delta):
-	global_position.y -= speed * delta
+	if Global.ui_open == false:
+		global_position.y -= speed * delta
 	
 	for effect in get_tree().get_nodes_in_group("VoidEffect"):
 		if effect.global_position.y < global_position.y:
