@@ -14,6 +14,7 @@ const ACCELERATION = 850.0
 const AIR_ACCELERATION = 600.0
 const DECELERATION = 850.0
 const AIR_DECELERATION = 475.0
+const MIN_Y_VELOCITY = -600.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
@@ -164,8 +165,10 @@ func handle_jump():
 
 func handle_gravity(delta, gravity_scale):
 	if not is_on_floor():
-		velocity.y += gravity * gravity_scale * delta
-
+		if velocity.y > MIN_Y_VELOCITY + gravity * gravity_scale * delta:
+			velocity.y += gravity * gravity_scale * delta
+		else:
+			velocity.y = MIN_Y_VELOCITY
 func _on_hurtbox_area_entered(area):
 	killed.emit()
 
