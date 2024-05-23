@@ -7,7 +7,7 @@ var sign_char_index = 0
 var sign_finished = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("interact") and can_interact:
+	if Input.is_action_just_pressed("interact") and can_interact and Global.ui_open == false:
 		show_sign_text()
 	
 	if Input.is_action_just_pressed("ui_continue") and sign_finished:
