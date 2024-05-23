@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cvyicici3u1vt" path="res://objects/sign.tscn" id="5_45vfy"]
 [ext_resource type="PackedScene" uid="uid://cpj685yaxv3ke" path="res://level/moving_platform.tscn" id="7_jicih"]
 
-[sub_resource type="Curve2D" id="Curve2D_yjyrv"]
+[sub_resource type="Curve2D" id="Curve2D_mbbbe"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -128, 0)
 }
-point_count = 1
+point_count = 2
 
 [node name="Level1" instance=ExtResource("1_yoai8")]
 
@@ -42,8 +42,9 @@ position = Vector2(48, -232)
 sign_text = "Danger! Fireballs ahead."
 
 [node name="MovingPlatform" parent="Platforms" index="0" instance=ExtResource("7_jicih")]
-position = Vector2(-377.89, -312)
-curve = SubResource("Curve2D_yjyrv")
+position = Vector2(-320, -232)
+curve = SubResource("Curve2D_mbbbe")
+backwards_speed_scale = 1.0
 
 [node name="BroadcastTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_ocxmj")]
 position = Vector2(0, 5)
