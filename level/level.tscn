@@ -1344,6 +1344,8 @@ motion_mirroring = Vector2(1000, 600)
 
 [node name="Objects" type="Node2D" parent="."]
 
+[node name="Platforms" type="Node2D" parent="."]
+
 [node name="EventTriggers" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_5n6er")]
