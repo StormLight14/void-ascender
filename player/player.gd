@@ -169,6 +169,7 @@ func handle_gravity(delta, gravity_scale):
 			velocity.y += gravity * gravity_scale * delta
 		else:
 			velocity.y = MIN_Y_VELOCITY
+
 func _on_hurtbox_area_entered(area):
 	killed.emit()
 

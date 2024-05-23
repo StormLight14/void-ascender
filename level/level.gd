@@ -19,6 +19,7 @@ func _ready():
 		checkpoint.captured.connect(checkpoint_captured)
 	
 func _process(_delta):
+	check_void_killed_player()
 	game_ui.get_node("VoidDistance").text = str(round(get_void_distance())) + "m..."
 
 func get_void_distance():
@@ -36,6 +37,10 @@ func spawn_fireball(direction, speed, lifetime, spawn_position):
 	fireball.lifetime = lifetime
 	fireball.global_position = spawn_position
 	add_child(fireball)
+	
+func check_void_killed_player():
+	if player.global_position.y > the_void.global_position.y:
+		player_killed()
 
 func checkpoint_captured(checkpoint):
 	for checkpoint_node in get_tree().get_nodes_in_group("Checkpoint"):
