@@ -3,10 +3,8 @@
 [ext_resource type="Script" path="res://hazards/void/void.gd" id="1_oh147"]
 [ext_resource type="Texture2D" uid="uid://ofv0s5tiw7j3" path="res://assets/hazards/void.png" id="2_xj3mj"]
 
-[node name="Void" type="Area2D"]
+[node name="Void" type="Node2D"]
 position = Vector2(0, 1)
-collision_layer = 2
-collision_mask = 16
 script = ExtResource("1_oh147")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
