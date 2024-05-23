@@ -39,7 +39,7 @@ func spawn_fireball(direction, speed, lifetime, spawn_position):
 	add_child(fireball)
 	
 func check_void_killed_player():
-	if player.global_position.y > the_void.global_position.y:
+	if player.global_position.y > the_void.global_position.y - 12:
 		player_killed()
 
 func checkpoint_captured(checkpoint):

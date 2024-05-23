@@ -42,7 +42,7 @@ position = Vector2(48, -232)
 sign_text = "Danger! Fireballs ahead."
 
 [node name="MovingPlatform" parent="Platforms" index="0" instance=ExtResource("7_jicih")]
-position = Vector2(-320, -232)
+position = Vector2(-328, -232)
 curve = SubResource("Curve2D_mbbbe")
 backwards_speed_scale = 1.0
 
