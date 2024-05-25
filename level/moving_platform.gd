@@ -7,7 +7,7 @@ extends Path2D
 
 @export var platform_type = "automatic" # possible choices: automatic, triggered
 @export var move_speed = 300.0
-@export var reverses = true # platform reverses when it reaches end of path
+@export var stop_mode = "never" # possible choices: never, reverse (reverse once, then stop), instant
 @export var backwards_speed_scale = 0.7
 
 enum { Stopped, Forward, Backward }
@@ -16,7 +16,9 @@ var movement = Stopped
 
 func _ready():
 	if platform_type == "automatic":
-		movement = Forward
+		set_movement(Forward)
+	else:
+		set_movement(Stopped)
 		
 func _physics_process(delta):
 	if movement == Forward:
@@ -24,11 +26,28 @@ func _physics_process(delta):
 			%PathFollow2D.progress += move_speed * delta
 		else:
 			%PathFollow2D.progress_ratio = curve.get_baked_length()
-			if reverses:
-				movement = Backward
+			if stop_mode != "instant":
+				set_movement(Backward)
+			else:
+				set_movement(Stopped)
 	elif movement == Backward:
 		if %PathFollow2D.progress > 0 + move_speed * delta:
 			%PathFollow2D.progress -= move_speed * delta
 		else:
 			%PathFollow2D.progress_ratio = 0.0
-			movement = Forward
+			if stop_mode == "never":
+				set_movement(Forward)
+			else:
+				set_movement(Stopped)
+			
+func set_movement(movement_type):
+	if movement_type != Stopped:
+		animated_sprite_2d.frame = 0
+	else:
+		animated_sprite_2d.frame = 1
+		
+	movement = movement_type
+
+func _on_trigger_area_body_entered(_body):
+	if platform_type == "triggered" and movement == Stopped:
+		set_movement(Forward)

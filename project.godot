@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://autoloads/Global.tscn"
-Music="*res://autoloads/Music.tscn"
 
 [dialogic]
 
