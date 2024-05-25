@@ -41,10 +41,12 @@ func _physics_process(delta):
 				set_movement(Stopped)
 			
 func set_movement(movement_type):
-	if movement_type != Stopped:
-		animated_sprite_2d.frame = 0
+	if movement_type == Stopped:
+		animated_sprite_2d.frame = 2 # red
+	elif movement_type == Backward and stop_mode == "reverse":
+		animated_sprite_2d.frame = 1 # yellow
 	else:
-		animated_sprite_2d.frame = 1
+		animated_sprite_2d.frame = 0 # green
 		
 	movement = movement_type
 
