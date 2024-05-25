@@ -31,8 +31,8 @@ func _physics_process(delta):
 			else:
 				set_movement(Stopped)
 	elif movement == Backward:
-		if %PathFollow2D.progress > 0 + move_speed * delta:
-			%PathFollow2D.progress -= move_speed * delta
+		if %PathFollow2D.progress > 0 + move_speed * delta * backwards_speed_scale:
+			%PathFollow2D.progress -= move_speed * delta * backwards_speed_scale
 		else:
 			%PathFollow2D.progress_ratio = 0.0
 			if stop_mode == "never":

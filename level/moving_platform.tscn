@@ -87,6 +87,7 @@ size = Vector2(48, 2)
 [node name="MovingPlatform" type="Path2D"]
 script = ExtResource("1_fld7l")
 move_speed = 100.0
+backwards_speed_scale = 1.0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 unique_name_in_owner = true

@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="FireballSpawner" type="StaticBody2D" groups=["FireballSpawner"]]
 script = ExtResource("1_xy2jm")
+fireball_lifetime = 1
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
