@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	global_position += direction * speed * delta
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	queue_free()
 
 func _on_lifetime_timeout():

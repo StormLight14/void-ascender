@@ -10,5 +10,5 @@ func capture():
 func reset():
 	sprite_2d.texture = preload("res://assets/level/flag.png")
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	captured.emit(self)

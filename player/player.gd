@@ -170,7 +170,7 @@ func handle_gravity(delta, gravity_scale):
 		else:
 			velocity.y = MIN_Y_VELOCITY
 
-func _on_hurtbox_area_entered(area):
+func _on_hurtbox_area_entered(_area):
 	killed.emit()
 
 func _on_idle_timer_timeout():
@@ -180,5 +180,5 @@ func _on_stamina_timer_timeout():
 	exhausted = false
 	player_stamina = MAX_STAMINA
 
-func _on_hurtbox_body_entered(body):
+func _on_hurtbox_body_entered(_body):
 	killed.emit()

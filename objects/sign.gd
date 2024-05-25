@@ -30,11 +30,11 @@ func _on_char_display_timer_timeout():
 	else:
 		sign_finished = true
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	can_interact = true
 	%Arrow.visible = true
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	can_interact = false
 	%Arrow.visible = false
 	print("exited")
