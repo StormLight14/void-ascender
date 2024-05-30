@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cvyicici3u1vt" path="res://objects/sign.tscn" id="3_0xh6f"]
 [ext_resource type="PackedScene" uid="uid://c0cblr6ryv046" path="res://event_triggers/broadcast_trigger.tscn" id="4_5mt8t"]
 
-
 [node name="Level" instance=ExtResource("1_qlds4")]
 
 [node name="StaticBackground" parent="ParallaxBackground" index="0"]
@@ -13,20 +12,18 @@ texture = ExtResource("2_gbcy5")
 
 [node name="Sign" parent="Objects" index="0" instance=ExtResource("3_0xh6f")]
 position = Vector2(100, 24)
+sign_text = "You are reading a sign."
 
 [node name="TitleTrigger" parent="EventTriggers" index="0" instance=ExtResource("4_5mt8t")]
 position = Vector2(0, 21)
-str_args = Array[String](["Void Ascender"])
-num_args = Array[float]([7.0, 4.5])
-vec2_args = Array[Vector2]([Vector2(0, -30)])
+messages = Array[String](["Void Ascender"])
+broadcast_time = 3.0
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 position = Vector2(0, 21)
 
-[node name="TileMap" parent="." index="6"]
+[node name="TileMap" parent="." index="7"]
 layer_0/tile_data = PackedInt32Array(131076, 65538, 0, 196612, 65538, 1, 196613, 65538, 1, 196614, 262146, 0, 196615, 131074, 2, 131079, 131074, 0, 131078, 65538, 0, 131077, 65538, 0, 131073, 65538, 0, 131072, 65538, 0, 196607, 2, 0, 262143, 2, 2, 196608, 327682, 0, 196609, 65538, 1, 196610, 65538, 1, 196611, 65538, 1, 131074, 65538, 0, 131075, 65538, 0, 262145, 327682, 0, 262146, 65538, 1, 262147, 65538, 1, 262148, 65538, 1, 262149, 262146, 0, 262150, 131074, 2, 262144, 2, 2, 327682, 65538, 2, 327683, 65538, 2, 327684, 65538, 2, 327681, 2, 2, 327685, 131074, 2, 131082, 2, 0, 196618, 2, 2, 196619, 327682, 0, 196620, 65538, 1, 196621, 65538, 1, 196622, 262146, 0, 196623, 131074, 2, 131087, 917506, 12, 131086, 65538, 0, 131085, 65538, 0, 131084, 65538, 0, 131083, 65538, 0, 262155, 2, 2, 262156, 65538, 2, 262157, 65538, 2, 262158, 131074, 2, 131088, 393218, 3)
 
-[node name="Void" parent="." index="7"]
+[node name="Void" parent="." index="8"]
 speed = 0
-
-[connection signal="body_exited" from="Objects/Sign" to="Objects/Sign" method="_on_body_exited"]
