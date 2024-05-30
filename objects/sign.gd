@@ -37,4 +37,3 @@ func _on_body_entered(_body):
 func _on_body_exited(_body):
 	can_interact = false
 	%Arrow.visible = false
-	print("exited")
