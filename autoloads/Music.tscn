@@ -9,6 +9,7 @@ current_music = ExtResource("2_oipc7")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+volume_db = -10.0
 autoplay = true
 max_distance = 5000.0
 

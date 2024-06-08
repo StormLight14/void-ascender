@@ -4,9 +4,12 @@ extends Node2D
 @onready var the_void = %Void
 @onready var game_ui = %GameUI
 
+@export var level_music: AudioStream = null;
+
 var player_spawn = Vector2(0, 0)
 
 func _ready():
+	Music.music_player.stream = level_music;
 	modulate = Color(1, 1, 1, 1)
 	player_spawn = player.global_position
 	player.killed.connect(player_killed)
