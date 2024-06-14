@@ -10,6 +10,7 @@ var player_spawn = Vector2(0, 0)
 
 func _ready():
 	Music.music_player.stream = level_music;
+	Music.music_player.playing = true;
 	modulate = Color(1, 1, 1, 1)
 	player_spawn = player.global_position
 	player.killed.connect(player_killed)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://qj0nexudiuy0"]
 
 [ext_resource type="Script" path="res://autoloads/Music.gd" id="1_6j55s"]
-[ext_resource type="AudioStream" uid="uid://bdjuirb1ti27n" path="res://assets/music/menu.wav" id="2_oipc7"]
+[ext_resource type="AudioStream" uid="uid://bm4ajvvd4ggt7" path="res://assets/music/void-ascender-main.wav" id="2_2e0of"]
 
 [node name="Music" type="Node2D"]
 script = ExtResource("1_6j55s")
-current_music = ExtResource("2_oipc7")
+current_music = ExtResource("2_2e0of")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

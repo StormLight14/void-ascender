@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var sign_text: String = "placeholder"
+@export_multiline var sign_text: String = "placeholder"
 
 var can_interact = false
 var sign_char_index = 0
