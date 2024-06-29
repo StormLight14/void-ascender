@@ -34,13 +34,13 @@ grow_horizontal = 2
 [node name="LevelButtons" type="HBoxContainer" parent="CenterContainer2"]
 layout_mode = 2
 
-[node name="Tutorial" type="Button" parent="CenterContainer2/LevelButtons" groups=["LevelButton"]]
+[node name="0" type="Button" parent="CenterContainer2/LevelButtons" groups=["LevelButton"]]
 layout_mode = 2
 text = "Tutorial Level"
 script = ExtResource("2_n4hpg")
 level_scene = ExtResource("3_e3cml")
 
-[node name="Level1" type="Button" parent="CenterContainer2/LevelButtons" groups=["LevelButton"]]
+[node name="1" type="Button" parent="CenterContainer2/LevelButtons" groups=["LevelButton"]]
 layout_mode = 2
 text = "Level One"
 script = ExtResource("2_n4hpg")
@@ -73,7 +73,7 @@ layout_mode = 2
 disabled = true
 text = "CONTINUE FROM CHECKPOINT"
 
-[connection signal="pressed" from="CenterContainer2/LevelButtons/Tutorial" to="CenterContainer2/LevelButtons/Tutorial" method="_on_pressed"]
-[connection signal="pressed" from="CenterContainer2/LevelButtons/Level1" to="CenterContainer2/LevelButtons/Level1" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer2/LevelButtons/0" to="CenterContainer2/LevelButtons/0" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer2/LevelButtons/1" to="CenterContainer2/LevelButtons/1" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]

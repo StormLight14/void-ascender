@@ -6,6 +6,10 @@ var level_scene: PackedScene = null
 func _ready():
 	for button in get_tree().get_nodes_in_group("LevelButton"):
 		button.level_pressed.connect(level_pressed)
+		var level = int(str(button.name))
+		if level > 0:
+			# button disabled if previous level not completed
+			button.disabled = not Global.level_data[level].completed
 
 func level_pressed(level):
 	level_scene = level
