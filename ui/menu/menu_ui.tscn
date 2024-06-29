@@ -46,7 +46,7 @@ layout_mode = 2
 [node name="LevelSelect" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_bl1fl")
-text = "CONTINUE"
+text = "LEVELS"
 
 [node name="NewGame" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

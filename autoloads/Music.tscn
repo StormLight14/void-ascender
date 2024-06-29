@@ -11,6 +11,6 @@ current_music = ExtResource("2_2e0of")
 unique_name_in_owner = true
 volume_db = -10.0
 autoplay = true
-max_distance = 5000.0
+max_distance = 100000.0
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
