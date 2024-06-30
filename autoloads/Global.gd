@@ -2,33 +2,24 @@ extends Node2D
 
 var ui_open = false
 var in_game = false
+var continue_from_checkpoint = false
+var current_level = "0"
 
 var level_data = {
-	0: { # tutorial
+	"0": { # tutorial
 		"completed": false,
-		"last_checkpoint": Vector2(0, 0)
+		"last_checkpoint": null
 	},
-	1: {
+	"1": {
 		"completed": false,
-		"last_checkpoint": Vector2(0, 0)
+		"last_checkpoint": null
 	},
-	2: {
+	"2": {
 		"completed": false,
-		"last_checkpoint": Vector2(0, 0)
+		"last_checkpoint": null
 	},
 }
 var deaths = 0
-
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_cancel") and in_game:
-		if ui_open == false:
-			ui_open = true
-			%PauseUI.visible = true
-			get_tree().paused = true
-		elif %PauseUI.visible == true:
-			%PauseUI.visible = false
-			ui_open = false
-			get_tree().paused = false
 
 func broadcast(messages, seconds = 5, font_size = 8, offset = Vector2(0, -30)):
 	%BroadcastLabel.text = messages[0]
@@ -62,6 +53,10 @@ func load_game():
 	if json.parse(save_file.get_as_text()) != OK:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", save_file.get_as_text(), " at line ", json.get_error_line())
 		return
-		
-	level_data = json["level_data"]
-	deaths = json["deaths"]
+	
+	var save_data = json.get_data()
+	level_data = save_data["level_data"]
+	for level in level_data:
+		if level_data[level].last_checkpoint:
+			level_data[level].last_checkpoint = str_to_var("Vector2" + level_data[level].last_checkpoint)
+	deaths = int(save_data["deaths"])

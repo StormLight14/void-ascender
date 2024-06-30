@@ -52,3 +52,5 @@ func checkpoint_captured(checkpoint):
 	checkpoint.capture()
 	player_spawn = checkpoint.global_position
 	the_void.set_reset_position(checkpoint.global_position)
+	Global.level_data[Global.current_level].last_checkpoint = checkpoint.global_position
+	Global.save_game()

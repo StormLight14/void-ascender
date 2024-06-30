@@ -32,7 +32,8 @@ signal killed
 
 func _ready():
 	Global.in_game = true
-	
+	if Global.continue_from_checkpoint:
+		global_position = Global.level_data[Global.current_level].last_checkpoint
 	animated_sprite_2d.play("idle")
 	update_climb_ui()
 	stamina_bar.max_value = MAX_STAMINA
