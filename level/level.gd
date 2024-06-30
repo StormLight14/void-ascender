@@ -15,6 +15,7 @@ func _ready():
 	player_spawn = player.global_position
 	player.killed.connect(player_killed)
 	the_void.set_reset_position(player.global_position)
+	the_void.global_position = the_void.reset_position
 	
 	for fireball_spawner in get_tree().get_nodes_in_group("FireballSpawner"):
 		fireball_spawner.spawn_fireball.connect(spawn_fireball)
