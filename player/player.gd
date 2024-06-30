@@ -31,6 +31,8 @@ var exhausted = false
 signal killed
 
 func _ready():
+	Global.in_game = true
+	
 	animated_sprite_2d.play("idle")
 	update_climb_ui()
 	stamina_bar.max_value = MAX_STAMINA

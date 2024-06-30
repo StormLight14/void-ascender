@@ -1,6 +1,8 @@
 extends Node2D
 
 var ui_open = false
+var in_game = false
+
 var level_data = {
 	0: { # tutorial
 		"completed": false,
@@ -16,6 +18,17 @@ var level_data = {
 	},
 }
 var deaths = 0
+
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel") and in_game:
+		if ui_open == false:
+			ui_open = true
+			%PauseUI.visible = true
+			get_tree().paused = true
+		elif %PauseUI.visible == true:
+			%PauseUI.visible = false
+			ui_open = false
+			get_tree().paused = false
 
 func broadcast(messages, seconds = 5, font_size = 8, offset = Vector2(0, -30)):
 	%BroadcastLabel.text = messages[0]

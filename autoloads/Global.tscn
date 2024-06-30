@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://botv6f64mvdwl"]
+[gd_scene load_steps=7 format=3 uid="uid://botv6f64mvdwl"]
 
 [ext_resource type="Script" path="res://autoloads/Global.gd" id="1_qgel2"]
+[ext_resource type="PackedScene" uid="uid://dhkqo57cau63" path="res://ui/pause_ui.tscn" id="2_ogdui"]
 
 [sub_resource type="Animation" id="Animation_x3vgb"]
 length = 0.001
@@ -78,6 +79,10 @@ text = "test text"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="PauseUI" parent="GlobalUI" instance=ExtResource("2_ogdui")]
+unique_name_in_owner = true
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
