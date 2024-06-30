@@ -12,7 +12,7 @@
 texture = ExtResource("2_gbcy5")
 
 [node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("3_4read")]
-position = Vector2(248, 21)
+position = Vector2(248, 16)
 
 [node name="Sign" parent="Objects" index="0" instance=ExtResource("3_0xh6f")]
 position = Vector2(100, 24)

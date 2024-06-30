@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://level/checkpoint.gd" id="1_yagbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf4hf"]
-size = Vector2(12, 57)
+size = Vector2(12, 52.5)
 
 [node name="Checkpoint" type="Area2D" groups=["Checkpoint"]]
 collision_layer = 4
@@ -15,7 +15,7 @@ script = ExtResource("1_yagbq")
 texture = ExtResource("1_1budu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -16.5)
+position = Vector2(0, -10.25)
 shape = SubResource("RectangleShape2D_vf4hf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
