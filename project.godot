@@ -14,6 +14,7 @@ config/name="void-ascender"
 run/main_scene="res://ui/menu/menu_ui.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+config/use_custom_dir_name=false
 
 [autoload]
 

@@ -9,7 +9,7 @@ func _ready():
 		var level = str(button.name)
 		if int(level) > 0:
 			# button disabled if previous level not completed
-			button.disabled = not Global.level_data[level].completed
+			button.disabled = not Global.level_data[str(int(level) - 1)].completed
 
 func level_pressed(level, scene):
 	Global.current_level = level
