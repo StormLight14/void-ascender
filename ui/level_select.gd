@@ -15,7 +15,10 @@ func level_pressed(level, scene):
 	Global.current_level = level
 	level_scene = scene
 	%Start.disabled = false
-	%Continue.disabled = false
+	if Global.level_data[level].last_checkpoint:
+		%Continue.disabled = false
+	else:
+		%Continue.disabled = true
 
 func _on_start_pressed():
 	get_tree().change_scene_to_packed(level_scene)
