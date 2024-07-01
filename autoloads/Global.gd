@@ -27,13 +27,13 @@ func broadcast(messages, seconds = 5, font_size = 8, offset = Vector2(0, -30)):
 	%BroadcastLabel.set("position", Vector2(0 + offset.x, 121 + offset.y))
 	%BroadcastTimer.wait_time = seconds
 	%BroadcastTimer.start()
-	%AnimationPlayer.play("broadcast_fade_in")
+	%BroadcastAnimationPlayer.play("broadcast_fade_in")
+	
+func _on_broadcast_timer_timeout():
+	%BroadcastAnimationPlayer.play("broadcast_fade_out")
 	
 func show_hint(_hint_message):
 	pass
-	
-func _on_broadcast_timer_timeout():
-	%AnimationPlayer.play("broadcast_fade_out")
 
 func save_game():
 	var save_file = FileAccess.open("user://game_save.json", FileAccess.WRITE)
@@ -60,3 +60,9 @@ func load_game():
 		if level_data[level].last_checkpoint:
 			level_data[level].last_checkpoint = str_to_var("Vector2" + level_data[level].last_checkpoint)
 	deaths = int(save_data["deaths"])
+
+func fade_in():
+	%FadeAnimationPlayer.play("fade_in")
+	
+func fade_out():
+	%FadeAnimationPlayer.play("fade_out")

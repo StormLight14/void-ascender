@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://botv6f64mvdwl"]
+[gd_scene load_steps=8 format=3 uid="uid://botv6f64mvdwl"]
 
 [ext_resource type="Script" path="res://autoloads/Global.gd" id="1_qgel2"]
 [ext_resource type="PackedScene" uid="uid://dhkqo57cau63" path="res://ui/pause_ui.tscn" id="2_ogdui"]
+[ext_resource type="PackedScene" uid="uid://lmm2gkpjw5eh" path="res://ui/fade_animation_player.tscn" id="3_syxik"]
 
 [sub_resource type="Animation" id="Animation_x3vgb"]
 length = 0.001
@@ -18,43 +19,18 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_onhf5"]
-resource_name = "broadcast_fade_in"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GlobalUI/BroadcastLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[sub_resource type="Animation" id="Animation_omrkb"]
+resource_name = "fade_in"
 
-[sub_resource type="Animation" id="Animation_ghp2p"]
-resource_name = "broadcast_fade_out"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GlobalUI/BroadcastLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
+[sub_resource type="Animation" id="Animation_ffyhu"]
+resource_name = "fade_out"
+length = 0.5
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v3c2n"]
 _data = {
 "RESET": SubResource("Animation_x3vgb"),
-"broadcast_fade_in": SubResource("Animation_onhf5"),
-"broadcast_fade_out": SubResource("Animation_ghp2p")
+"fade_in": SubResource("Animation_omrkb"),
+"fade_out": SubResource("Animation_ffyhu")
 }
 
 [node name="Global" type="Node2D"]
@@ -84,11 +60,14 @@ autowrap_mode = 2
 unique_name_in_owner = true
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="BroadcastAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_v3c2n")
 }
+
+[node name="FadeAnimationPlayer" parent="." instance=ExtResource("3_syxik")]
+unique_name_in_owner = true
 
 [node name="BroadcastTimer" type="Timer" parent="."]
 unique_name_in_owner = true

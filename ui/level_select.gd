@@ -21,9 +21,12 @@ func level_pressed(level, scene):
 		%Continue.disabled = true
 
 func _on_start_pressed():
-	get_tree().change_scene_to_packed(level_scene)
+	%FadeAnimationPlayer.play("fade_out")
 
 func _on_continue_pressed():
 	if Global.level_data[Global.current_level].last_checkpoint:
 		Global.continue_from_checkpoint = true
-		get_tree().change_scene_to_packed(level_scene)
+		%FadeAnimationPlayer.play("fade_out")
+
+func _on_fade_animation_player_animation_finished(anim_name):
+	get_tree().change_scene_to_packed(level_scene)
