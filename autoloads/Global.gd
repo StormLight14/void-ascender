@@ -8,18 +8,21 @@ var current_level = "0"
 var level_data = {
 	"0": { # tutorial
 		"completed": false,
-		"last_checkpoint": null
+		"last_checkpoint": null,
+		"deaths": 0,
 	},
 	"1": {
 		"completed": false,
-		"last_checkpoint": null
+		"last_checkpoint": null,
+		"deaths": 0,
 	},
 	"2": {
 		"completed": false,
-		"last_checkpoint": null
+		"last_checkpoint": null,
+		"deaths": 0,
 	},
 }
-var deaths = 0
+var total_deaths = 0
 
 func broadcast(messages, seconds = 5, font_size = 8, offset = Vector2(0, -30)):
 	%BroadcastLabel.text = messages[0]
@@ -39,7 +42,7 @@ func save_game():
 	var save_file = FileAccess.open("user://game_save.json", FileAccess.WRITE)
 	var save_dict = {
 		"level_data": level_data,
-		"deaths": deaths
+		"total_deaths": total_deaths
 	}
 
 	save_file.store_line(JSON.stringify(save_dict))
@@ -59,7 +62,7 @@ func load_game():
 	for level in level_data:
 		if level_data[level].last_checkpoint:
 			level_data[level].last_checkpoint = str_to_var("Vector2" + level_data[level].last_checkpoint)
-	deaths = int(save_data["deaths"])
+	total_deaths = int(save_data["total_deaths"])
 
 func fade_in():
 	%FadeAnimationPlayer.play("fade_in")

@@ -14,6 +14,11 @@ func _process(_delta):
 		Global.ui_open = false
 		%SignUI.visible = false
 		
+	if Input.is_action_just_pressed("ui_cancel"):
+		%SignLabel.text = sign_text
+		sign_char_index = 0
+		sign_finished = true
+		
 func show_sign_text():
 	%SignUI.visible = true
 	%SignLabel.text = ""
@@ -24,10 +29,12 @@ func show_sign_text():
 	%CharDisplayTimer.start()
 	
 func _on_char_display_timer_timeout():
-	if sign_char_index < len(sign_text):
+	if sign_char_index < len(sign_text) and not sign_finished:
 		%SignLabel.text += sign_text[sign_char_index]
 		sign_char_index += 1
+		%CharDisplayTimer.start()
 	else:
+		sign_char_index = 0
 		sign_finished = true
 
 func _on_body_entered(_body):

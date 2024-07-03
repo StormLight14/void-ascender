@@ -38,6 +38,8 @@ func get_void_distance():
 func player_killed():
 	the_void.on_player_killed()
 	player.global_position = player_spawn
+	Global.level_data[Global.current_level].deaths += 1
+	player.velocity.y = 0
 
 func spawn_fireball(direction, speed, lifetime, spawn_position):
 	var fireball = preload("res://hazards/fireball/fireball.tscn").instantiate()

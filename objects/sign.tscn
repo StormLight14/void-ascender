@@ -27,7 +27,8 @@ position = Vector2(0, -14)
 
 [node name="CharDisplayTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.05
+wait_time = 0.04
+one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
