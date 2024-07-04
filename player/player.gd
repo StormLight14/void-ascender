@@ -27,6 +27,7 @@ var exhausted = false
 @onready var hearts = %Hearts
 @onready var stamina_timer = %StaminaTimer
 @onready var animated_sprite_2d = %AnimatedSprite2D
+@onready var camera_2d = $Camera2D
 
 signal killed
 

@@ -25,6 +25,7 @@ func _ready():
 			add_child(void_effect)
 			
 func _process(delta):
+	global_position.x = %Player.camera_2d.get_screen_center_position().x
 	if Global.ui_open == false:
 		global_position.y -= speed * delta
 	

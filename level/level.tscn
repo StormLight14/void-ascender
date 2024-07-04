@@ -1362,6 +1362,7 @@ format = 2
 [node name="Void" parent="." instance=ExtResource("4_581ep")]
 unique_name_in_owner = true
 position = Vector2(10, 453)
+speed = 20
 
 [node name="GameUI" parent="." instance=ExtResource("7_00mnn")]
 unique_name_in_owner = true

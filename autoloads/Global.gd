@@ -39,6 +39,10 @@ func show_hint(_hint_message):
 	pass
 
 func save_game():
+	total_deaths = 0
+	for level in level_data:
+		total_deaths += level_data[level].deaths
+
 	var save_file = FileAccess.open("user://game_save.json", FileAccess.WRITE)
 	var save_dict = {
 		"level_data": level_data,
