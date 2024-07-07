@@ -8,7 +8,7 @@ Alternatively, clone this repository and open the project with Godot 4.2.
 
 ## Todo
 - [x] Able to move!
-- [x] Climbing system (Partially Finished)
+- [x] Climbing system
 - [x] Void rises
 - [x] Main menu
 - [x] Level select
