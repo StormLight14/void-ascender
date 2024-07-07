@@ -12,5 +12,5 @@ Alternatively, clone this repository and open the project with Godot 4.2.
 - [x] Void rises
 - [x] Main menu
 - [x] Level select
-- [ ] Saving
+- [x] Saving
 - [ ] Replace placeholder sprites
