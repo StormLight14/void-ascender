@@ -64,6 +64,7 @@ func checkpoint_captured(checkpoint):
 	Global.save_game()
 
 func finish_flag_captured():
+	%FadeAnimationPlayer.visible = true
 	%FadeAnimationPlayer.play("fade_out")
 
 func _on_fade_animation_player_animation_finished(anim_name):

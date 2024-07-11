@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnby7a6aqmg2w"]
+[gd_scene load_steps=7 format=3 uid="uid://cnby7a6aqmg2w"]
 
 [ext_resource type="Script" path="res://ui/level_select.gd" id="1_wog0r"]
 [ext_resource type="Script" path="res://ui/level_button.gd" id="2_n4hpg"]
 [ext_resource type="PackedScene" uid="uid://bhcclvryqg1yr" path="res://level/levels/tutorial.tscn" id="3_e3cml"]
 [ext_resource type="PackedScene" uid="uid://c0higly2fvcaj" path="res://level/levels/level1.tscn" id="4_k0lln"]
+[ext_resource type="PackedScene" uid="uid://cx6lr8lgq1oqa" path="res://level/levels/level2.tscn" id="5_3f7sh"]
 [ext_resource type="PackedScene" uid="uid://lmm2gkpjw5eh" path="res://ui/fade_animation_player.tscn" id="5_j5ap6"]
 
 [node name="LevelSelect" type="Control"]
@@ -47,6 +48,12 @@ text = "Level One"
 script = ExtResource("2_n4hpg")
 level_scene = ExtResource("4_k0lln")
 
+[node name="2" type="Button" parent="CenterContainer2/LevelButtons" groups=["LevelButton"]]
+layout_mode = 2
+text = "Level Two"
+script = ExtResource("2_n4hpg")
+level_scene = ExtResource("5_3f7sh")
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -79,6 +86,7 @@ unique_name_in_owner = true
 
 [connection signal="pressed" from="CenterContainer2/LevelButtons/0" to="CenterContainer2/LevelButtons/0" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer2/LevelButtons/1" to="CenterContainer2/LevelButtons/1" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer2/LevelButtons/2" to="CenterContainer2/LevelButtons/2" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="animation_finished" from="FadeAnimationPlayer" to="." method="_on_fade_animation_player_animation_finished"]
