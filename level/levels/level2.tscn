@@ -2027,6 +2027,7 @@ layer_0/tile_data = PackedInt32Array(131071, 65539, 0, 65536, 65539, 0, 65537, 6
 [node name="Void" parent="." instance=ExtResource("7_qokl8")]
 unique_name_in_owner = true
 position = Vector2(10, 453)
+direction = "down"
 speed = 20
 
 [node name="GameUI" parent="." instance=ExtResource("8_slpry")]

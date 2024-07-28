@@ -71,11 +71,11 @@ func set_reset_position(checkpoint_pos):
 		"up":
 			reset_position.y += spawn_distance_from_player
 		"down":
-			reset_position.y -= spawn_distance_from_player - height
+			reset_position.y -= (spawn_distance_from_player + height)
 		"left":
-			reset_position.x += spawn_distance_from_player
+			reset_position.x += spawn_distance_from_player + width / 2
 		"right":
-			reset_position.x -= spawn_distance_from_player
+			reset_position.x -= spawn_distance_from_player + width / 2
 	
 
 func on_player_killed():
