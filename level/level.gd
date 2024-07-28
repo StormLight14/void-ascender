@@ -15,8 +15,7 @@ func _ready():
 	modulate = Color(1, 1, 1, 1)
 	player_spawn = player.global_position
 	player.killed.connect(player_killed)
-	the_void.set_reset_position(player.global_position)
-	the_void.global_position = the_void.reset_position
+	the_void.player_start_pos = player.global_position
 	
 	for fireball_spawner in get_tree().get_nodes_in_group("FireballSpawner"):
 		fireball_spawner.spawn_fireball.connect(spawn_fireball)
@@ -51,8 +50,19 @@ func spawn_fireball(direction, speed, lifetime, spawn_position):
 	add_child(fireball)
 	
 func check_void_killed_player():
-	if player.global_position.y > the_void.global_position.y - 12:
-		player_killed()
+	match the_void.direction:
+		"up":
+			if player.global_position.y > the_void.global_position.y - 12:
+				player_killed()
+		"down":
+			if player.global_position.y < the_void.global_position.y - the_void.height + 12:
+				player_killed()
+		"left":
+			if player.global_position.x > the_void.global_position.x - 12:
+				player_killed()
+		"right":
+			if player.global_position.x < the_void.global_position.x + 12:
+				player_killed()
 
 func checkpoint_captured(checkpoint):
 	for checkpoint_node in get_tree().get_nodes_in_group("Checkpoint"):

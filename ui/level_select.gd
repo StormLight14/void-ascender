@@ -28,5 +28,5 @@ func _on_continue_pressed():
 		Global.continue_from_checkpoint = true
 		%FadeAnimationPlayer.play("fade_out")
 
-func _on_fade_animation_player_animation_finished(anim_name):
+func _on_fade_animation_player_animation_finished(_anim_name):
 	get_tree().change_scene_to_packed(level_scene)
