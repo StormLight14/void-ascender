@@ -32,7 +32,15 @@ func _process(_delta):
 
 func get_void_distance():
 	# 1 pixel = 0.025 meters
-	return ceil(abs(player.global_position.y - the_void.global_position.y) / 40)
+	match the_void.direction:
+		"up":
+			return ceil(abs(player.global_position.y - the_void.global_position.y) / 40)
+		"down":
+			return ceil(abs(player.global_position.y + the_void.global_position.y + the_void.height) / 40)
+		"left":
+			return ceil(abs(player.global_position.x - the_void.global_position.y + (the_void.width / 2)) / 40)
+		"right":
+			return ceil(abs(player.global_position.x + the_void.global_position.y + (the_void.width / 2)) / 40)
 	
 func player_killed():
 	the_void.on_player_killed()
