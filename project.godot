@@ -137,7 +137,7 @@ ui_continue={
 
 [physics]
 
-2d/default_gravity=800.0
+2d/default_gravity=850.0
 
 [rendering]
 

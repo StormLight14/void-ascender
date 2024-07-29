@@ -170,8 +170,7 @@ func handle_jump():
 func handle_gravity(delta, gravity_scale):
 	if not is_on_floor():
 		velocity.y += gravity * gravity_scale * delta
-		if velocity.y < MAX_Y_VELOCITY + gravity * gravity_scale:
-			velocity.y = MAX_Y_VELOCITY
+		velocity.y = min(MAX_Y_VELOCITY, velocity.y)
 
 func _on_hurtbox_area_entered(_area):
 	killed.emit()
