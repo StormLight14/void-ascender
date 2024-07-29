@@ -27,7 +27,6 @@ func _ready():
 		flag.captured.connect(finish_flag_captured)
 	
 func _process(_delta):
-	check_void_killed_player()
 	game_ui.get_node("VoidDistance").text = str(round(get_void_distance())) + "m..."
 
 func get_void_distance():
@@ -56,21 +55,6 @@ func spawn_fireball(direction, speed, lifetime, spawn_position):
 	fireball.lifetime = lifetime
 	fireball.global_position = spawn_position
 	add_child(fireball)
-	
-func check_void_killed_player():
-	match the_void.direction:
-		"up":
-			if player.global_position.y > the_void.global_position.y - 12:
-				player_killed()
-		"down":
-			if player.global_position.y < the_void.global_position.y - the_void.height + 12:
-				player_killed()
-		"left":
-			if player.global_position.x > the_void.global_position.x - 12:
-				player_killed()
-		"right":
-			if player.global_position.x < the_void.global_position.x + 12:
-				player_killed()
 
 func checkpoint_captured(checkpoint):
 	for checkpoint_node in get_tree().get_nodes_in_group("Checkpoint"):

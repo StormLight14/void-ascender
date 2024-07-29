@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var direction = "up"
-@export var width = 10000
+@export var width = 1000
 @export var height = 600
 @export var spawn_distance_from_player = 300
 @export var h_effect_distance = 40
