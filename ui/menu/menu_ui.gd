@@ -7,10 +7,10 @@ func _on_new_game_pressed():
 	get_tree().change_scene_to_file("res://level/levels/tutorial.tscn")
 
 func _on_continue_pressed():
-	get_tree().change_scene_to_file("res://ui/level_select.tscn")
+	get_tree().change_scene_to_file("res://ui/menu/level_select.tscn")
 
 func _on_settings_pressed():
-	get_tree().change_scene_to_file("res://ui/settings.tscn")
+	get_tree().change_scene_to_file("res://ui/menu/settings.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()

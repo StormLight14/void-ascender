@@ -35,7 +35,7 @@ func _ready():
 			void_effect.velocity = Vector2(effect_velocities[rng.randi_range(0, 1)], effect_velocities[rng.randi_range(0, 1)])
 			add_child(void_effect)
 			
-func _process(delta):
+func _physics_process(delta):
 	if Global.ui_open == false:
 		match direction:
 			"up":

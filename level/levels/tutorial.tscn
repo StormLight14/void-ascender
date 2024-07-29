@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgx8trbatcdeq" path="res://assets/backgrounds/sky_bg.png" id="2_gbcy5"]
 [ext_resource type="PackedScene" uid="uid://cvyicici3u1vt" path="res://objects/sign.tscn" id="3_0xh6f"]
 [ext_resource type="PackedScene" uid="uid://q1446pk3jgsj" path="res://level/checkpoint.tscn" id="3_4read"]
-[ext_resource type="PackedScene" uid="uid://c0cblr6ryv046" path="res://event_triggers/broadcast_trigger.tscn" id="4_5mt8t"]
+[ext_resource type="PackedScene" uid="uid://c0cblr6ryv046" path="res://event_triggers/broadcast/broadcast_trigger.tscn" id="4_5mt8t"]
 [ext_resource type="PackedScene" uid="uid://b2dh0s0te08lq" path="res://level/finish_flag.tscn" id="4_n1cdy"]
 
 [node name="Level" instance=ExtResource("1_qlds4")]

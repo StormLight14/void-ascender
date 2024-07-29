@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4oinm5bl621w"]
 
-[ext_resource type="Script" path="res://event_triggers/music_trigger.gd" id="1_acfde"]
+[ext_resource type="Script" path="res://event_triggers/music/music_trigger.gd" id="1_acfde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0o2w"]
 

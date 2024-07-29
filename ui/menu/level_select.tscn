@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnby7a6aqmg2w"]
 
-[ext_resource type="Script" path="res://ui/level_select.gd" id="1_wog0r"]
-[ext_resource type="Script" path="res://ui/level_button.gd" id="2_n4hpg"]
+[ext_resource type="Script" path="res://ui/menu/level_select.gd" id="1_wog0r"]
+[ext_resource type="Script" path="res://ui/menu/level_button.gd" id="2_n4hpg"]
 [ext_resource type="PackedScene" uid="uid://bhcclvryqg1yr" path="res://level/levels/tutorial.tscn" id="3_e3cml"]
 [ext_resource type="PackedScene" uid="uid://c0higly2fvcaj" path="res://level/levels/level1.tscn" id="4_k0lln"]
-[ext_resource type="PackedScene" uid="uid://cx6lr8lgq1oqa" path="res://level/levels/level2.tscn" id="5_3f7sh"]
+[ext_resource type="PackedScene" uid="uid://cswu84u52n4yg" path="res://level/levels/level2.tscn" id="5_7t3c8"]
 [ext_resource type="PackedScene" uid="uid://lmm2gkpjw5eh" path="res://ui/fade_animation_player.tscn" id="5_j5ap6"]
 
 [node name="LevelSelect" type="Control"]
@@ -52,7 +52,7 @@ level_scene = ExtResource("4_k0lln")
 layout_mode = 2
 text = "Level Two"
 script = ExtResource("2_n4hpg")
-level_scene = ExtResource("5_3f7sh")
+level_scene = ExtResource("5_7t3c8")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

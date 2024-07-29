@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://q1r5m4s6vnpi"]
+
+[ext_resource type="Script" path="res://event_triggers/light/light_trigger.gd" id="1_7dull"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0o2w"]
+
+[node name="LightTrigger" type="Area2D"]
+collision_mask = 8
+script = ExtResource("1_7dull")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w0o2w")
+debug_color = Color(0.955121, 0, 0.544875, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

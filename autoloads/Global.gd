@@ -37,6 +37,9 @@ func _on_broadcast_timer_timeout():
 	
 func show_hint(_hint_message):
 	pass
+	
+func set_lighting(lighting_mode):
+	%CanvasModulate.visible = lighting_mode
 
 func save_game():
 	total_deaths = 0

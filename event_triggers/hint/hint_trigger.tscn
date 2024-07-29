@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0cblr6ryv046"]
+[gd_scene load_steps=3 format=3 uid="uid://w8s234hitwx1"]
 
-[ext_resource type="Script" path="res://event_triggers/broadcast_trigger.gd" id="1_sndq1"]
+[ext_resource type="Script" path="res://event_triggers/hint/hint_trigger.gd" id="1_h7rdv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0o2w"]
 
-[node name="BroadcastTrigger" type="Area2D"]
+[node name="HintTrigger" type="Area2D"]
 collision_mask = 8
-script = ExtResource("1_sndq1")
+script = ExtResource("1_h7rdv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w0o2w")

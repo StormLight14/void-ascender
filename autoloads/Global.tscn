@@ -96,4 +96,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 one_shot = true
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+unique_name_in_owner = true
+visible = false
+color = Color(0.581033, 0.581033, 0.581033, 1)
+
 [connection signal="timeout" from="BroadcastTimer" to="." method="_on_broadcast_timer_timeout"]

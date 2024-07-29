@@ -14,7 +14,7 @@ const ACCELERATION = 850.0
 const AIR_ACCELERATION = 600.0
 const DECELERATION = 850.0
 const AIR_DECELERATION = 475.0
-const MAX_Y_VELOCITY = 600.0
+const MAX_Y_VELOCITY = 400.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
