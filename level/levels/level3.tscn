@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4womysi3imao"]
+
+[ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="1_1ayio"]
+
+[node name="Level" instance=ExtResource("1_1ayio")]
+
+[editable path="FadeAnimationPlayer"]
