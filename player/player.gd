@@ -176,7 +176,7 @@ func handle_facing():
 func handle_jump():
 	if Input.is_action_pressed("jump") and can_jump and Global.ui_open == false:
 		can_jump = false
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY	
 
 func handle_gravity(delta, gravity_scale):
 	if not is_on_floor():
