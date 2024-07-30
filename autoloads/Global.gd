@@ -21,6 +21,11 @@ var level_data = {
 		"last_checkpoint": null,
 		"deaths": 0,
 	},
+	"3": {
+		"completed": false,
+		"last_checkpoint": null,
+		"deaths": 0,
+	},
 }
 var total_deaths = 0
 

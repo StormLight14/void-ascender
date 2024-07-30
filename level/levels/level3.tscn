@@ -1,7 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4womysi3imao"]
+[gd_scene load_steps=5 format=3 uid="uid://c4womysi3imao"]
 
 [ext_resource type="PackedScene" uid="uid://c8xrrjcryhhv" path="res://level/level.tscn" id="1_1ayio"]
+[ext_resource type="PackedScene" uid="uid://cpj685yaxv3ke" path="res://level/moving_platform.tscn" id="2_m7rc0"]
+[ext_resource type="PackedScene" uid="uid://bbqpt2egcsewa" path="res://event_triggers/gravity/gravity_trigger.tscn" id="3_77uh3"]
+
+[sub_resource type="Curve2D" id="Curve2D_dextd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -264)
+}
+point_count = 2
 
 [node name="Level" instance=ExtResource("1_1ayio")]
+
+[node name="MovingPlatform" parent="Platforms" index="0" instance=ExtResource("2_m7rc0")]
+position = Vector2(280, -376)
+curve = SubResource("Curve2D_dextd")
+platform_type = "triggered"
+move_speed = 500.0
+stop_mode = "reverse"
+backwards_speed_scale = 0.5
+
+[node name="GravityTrigger" parent="EventTriggers" index="0" instance=ExtResource("3_77uh3")]
+position = Vector2(144, -1384)
+trigger_limit = 1000
+set_gravity_scale = 0.7
+
+[node name="GravityTrigger2" parent="EventTriggers" index="1" instance=ExtResource("3_77uh3")]
+position = Vector2(0, 16)
+trigger_limit = 1000
+set_gravity_scale = 0.4
+
+[node name="Player" parent="." index="6"]
+position = Vector2(0, 21)
+player_gravity_scale = 0.4
+
+[node name="TileMap" parent="." index="7"]
+layer_0/tile_data = PackedInt32Array(131072, 65540, 0, 196607, 65540, 0, 131073, 65540, 0, 131074, 65540, 0, 131075, 131076, 0, 196606, 65540, 0, 196605, 4, 0, 262141, 4, 1, 262142, 65540, 1, 262143, 65540, 1, 196608, 65540, 1, 196609, 65540, 1, 196610, 65540, 1, 196611, 131076, 1, 262147, 131076, 2, 262146, 65540, 2, 262145, 65540, 2, 262144, 65540, 2, 327679, 65540, 2, 327678, 65540, 2, 327677, 4, 2, -327675, 4, 2, -327674, 65540, 2, -327673, 65540, 2, -327672, 65540, 2, -327671, 131076, 2, -393207, 131076, 0, -393208, 65540, 0, -393209, 65540, 0, -393210, 65540, 0, -393211, 4, 0, -917511, 4, 0, -851975, 4, 2, -851974, 65540, 2, -851973, 65540, 2, -851972, 131076, 2, -917508, 131076, 0, -917509, 65540, 0, -917510, 65540, 0, -1572863, 4, 0, -1507327, 4, 2, -1507326, 65540, 2, -1507325, 65540, 2, -1507324, 131076, 2, -1572860, 131076, 0, -1572861, 65540, 0, -1572862, 65540, 0, -1638378, 458756, 2, -1703914, 458756, 1, -1769450, 458756, 1, -1834986, 458756, 1, -1900522, 458756, 1, -1966058, 458756, 0, -1966060, 983044, 1, -2031595, 983044, 1, -2097130, 983044, 1, -2031593, 983044, 1, -1966056, 983044, 1, -5636089, 5, 0, -5636088, 65541, 0, -5636087, 65541, 0, -5636086, 131077, 0, -5570550, 131077, 2, -5570551, 65541, 2, -5570552, 65541, 2, -5570553, 5, 2)
+
+[node name="Void" parent="." index="8"]
+speed = 50
 
 [editable path="FadeAnimationPlayer"]

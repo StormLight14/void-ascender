@@ -16,6 +16,8 @@ const DECELERATION = 850.0
 const AIR_DECELERATION = 475.0
 const MAX_Y_VELOCITY = 400.0
 
+@export var player_gravity_scale = 1.0
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
 var player_stamina = MAX_STAMINA
@@ -180,7 +182,7 @@ func handle_jump():
 
 func handle_gravity(delta, gravity_scale):
 	if not is_on_floor():
-		velocity.y += gravity * gravity_scale * delta
+		velocity.y += gravity * player_gravity_scale * gravity_scale * delta
 		velocity.y = min(MAX_Y_VELOCITY, velocity.y)
 
 func _on_hurtbox_area_entered(_area):
