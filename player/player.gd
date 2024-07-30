@@ -174,7 +174,7 @@ func handle_facing():
 			animated_sprite_2d.flip_h = false
 	
 func handle_jump():
-	if Input.is_action_pressed("jump") and is_on_floor() and can_jump and Global.ui_open == false:
+	if Input.is_action_pressed("jump") and can_jump and Global.ui_open == false:
 		can_jump = false
 		velocity.y = JUMP_VELOCITY
 
