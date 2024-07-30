@@ -70,4 +70,4 @@ func finish_flag_captured():
 
 func _on_fade_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
-		get_tree().change_scene_to_file("res://ui/level_select.tscn")
+		get_tree().change_scene_to_file("res://ui/menu/level_select.tscn")

@@ -167,9 +167,24 @@ wait_time = 2.5
 one_shot = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
 visible = false
-energy = 0.85
+light_mask = 2
+energy = 0.73
+blend_mode = 2
+shadow_enabled = true
 texture = ExtResource("3_ctujr")
+texture_scale = 5.52
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+visible = false
+energy = 0.73
+blend_mode = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("3_ctujr")
+texture_scale = 5.52
 
 [node name="IdleTimer" type="Timer" parent="."]
 unique_name_in_owner = true

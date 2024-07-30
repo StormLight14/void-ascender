@@ -9,6 +9,7 @@ func _on_body_entered(body):
 	trigger_limit -= 1
 	if trigger_limit <= 0:
 		queue_free()
-
-func _on_area_entered(area):
-	pass # Replace with function body.
+		
+	if set_lighting:
+		body.point_light_2d.visible = true
+		#body.point_light_2d_2.visible = true
