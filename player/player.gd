@@ -19,6 +19,7 @@ const MAX_Y_VELOCITY = 400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = IDLE
 var player_stamina = MAX_STAMINA
+var can_jump = true
 var exhausted = false
 
 @onready var climb_checker_left = %ClimbCheckerLeft
@@ -26,6 +27,7 @@ var exhausted = false
 @onready var stamina_bar = %StaminaBar
 @onready var hearts = %Hearts
 @onready var stamina_timer = %StaminaTimer
+@onready var coyote_jump_timer = %CoyoteJumpTimer
 @onready var animated_sprite_2d = %AnimatedSprite2D
 @onready var point_light_2d = %PointLight2D
 @onready var point_light_2d_2 = %PointLight2D
@@ -134,9 +136,15 @@ func handle_movement(delta):
 	var acceleration = ACCELERATION
 	var deceleration = DECELERATION
 	var max_speed = MAX_SPEED
+	
 	if not is_on_floor():
 		acceleration = AIR_ACCELERATION
 		deceleration = AIR_DECELERATION
+		if can_jump and coyote_jump_timer.is_stopped():
+			coyote_jump_timer.start()
+	else:
+		can_jump = true
+
 	if exhausted:
 		acceleration /= 2
 		max_speed /= 2
@@ -166,7 +174,8 @@ func handle_facing():
 			animated_sprite_2d.flip_h = false
 	
 func handle_jump():
-	if Input.is_action_pressed("jump") and is_on_floor() and Global.ui_open == false:
+	if Input.is_action_pressed("jump") and is_on_floor() and can_jump and Global.ui_open == false:
+		can_jump = false
 		velocity.y = JUMP_VELOCITY
 
 func handle_gravity(delta, gravity_scale):
@@ -186,3 +195,6 @@ func _on_stamina_timer_timeout():
 
 func _on_hurtbox_body_entered(_body):
 	killed.emit()
+
+func _on_coyote_jump_timer_timeout():
+	can_jump = false
