@@ -44,22 +44,39 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="LevelSelect" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../NewGame")
+focus_next = NodePath("../NewGame")
+focus_previous = NodePath("../Quit")
 theme = ExtResource("2_bl1fl")
 text = "LEVELS"
 
 [node name="NewGame" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../LevelSelect")
+focus_neighbor_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../LevelSelect")
 theme = ExtResource("2_bl1fl")
 text = "NEW GAME"
 
 [node name="Settings" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../NewGame")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../NewGame")
 theme = ExtResource("2_bl1fl")
 text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../LevelSelect")
+focus_next = NodePath("../LevelSelect")
+focus_previous = NodePath("../Settings")
 theme = ExtResource("2_bl1fl")
 text = "QUIT"
 
